@@ -43,6 +43,7 @@
 		<div class="reveal">
 
 			<div class="slides">
+				<section>
 				<section id="titre">
 					<h1>Java 8 en pratique</h1>
 					<h3>Quelques exemples</h3>
@@ -58,22 +59,21 @@
 						<li class="fragment">Disponible depuis le 18 mars 2014</li>
 						<li class="fragment">stream() et λ</li>
 						<li class="fragment">Date / Time <span class="fragment">(Joda-Time)</span></li>
-						<li class="fragment">...</li>
 					</ul>
 
 					<aside class="notes">
 						Notes
 					</aside>
 				</section>
-
+				
 				<section id="objectifs">
-					<h2>Démarche</h2>
+					<h2>Objectif</h2>
 					<ul>
-						<li>Utilisation concrète</li>
-						<li class="fragment">Calcul d'itinéraire TAN (OpenData, graphes)</li>
-						<li class="fragment">Création d'exemples</li>
-						<li class="fragment">Écriture de code Java 5/6/7 <span class="fragment">(sans Guava...)</span></li>
-						<li class="fragment">Réécriture avec Java 8</li>
+						<li>Présenter le quickie "gagné" en décembre</li>
+						<li class="fragment">Utliser Java8 dans des cas concrets</li>
+						<li class="fragment">Deux semaines pour préparer</li>
+						<li class="fragment">Focus sur l'API Stream</li>
+						<li class="fragment">Calcul d'itinéraire TAN en bonus</li>
 					</ul>
 
 					<aside class="notes">
@@ -81,14 +81,32 @@
 					</aside>
 				</section>
 
-				<section id="objectifs">
-					<h2>stream()</h2>
+				</section>
+
+				<section>
+				<section id="presentation">
+					<h2>Stream : Présentation</h2>
+					<img src="stream.jpg" />
 					<ul>
-						<li>Création d'un flux à partir d'une Collection</li>
-						<li class="fragment">Permet d'appliquer des opérateurs sur les éléments <span class="fragment"><b>"map"</b></span><li>
-						<li class="fragment">Exemple : filtrage, conversion, récupération d'un attribut, lecture en base, ...</li>
-						<li>Peut être agrégé <span class="fragment"><b>"reduce"</b></span><li>
-						<li class="fragment">Exemple : moyenne, ...</li>
+						<li>Flux de données</li>
+						<li>Parallélisable sous certaines conditions</li>
+						<li>Utilisation de fonctions sans classe dédiée</li>
+						<li>Exemple : <code>Collections.sort(list, (v1, v2) -&gt; Integer.compare(v1, v2))</code></li>
+					</ul>
+
+					<aside class="notes">
+						Notes
+					</aside>
+				</section>
+
+				<section id="initialisation">
+					<h2>stream() : initialisation</h2>
+					<ul>
+						<li>Création d'un flux à partir d'une source de données, ne peut être utilisé qu'une fois</li>
+						<li class="fragment">Lazy loading : les données ne sont pas chargés à la construction du stream</li>
+						<li class="fragment"><code>collection.stream()</code> : flux des éléments de la collection</li>
+						<li class="fragment"><code>Files.lines(path)</code> : flux des lignes d'un fichier</li>
+						<li class="fragment"><code>IntStream.iterate(1, i -&gt; i + 1)</code> : flux auto incrémenté</li>
 					</ul>
 
 					<aside class="notes">
@@ -97,6 +115,56 @@
 				</section>
 
 
+				<section id="operations">
+					<h2>stream() : opérations</h2>
+					<ul>
+						<li>Création d'un nouveau flux</li>
+						<li>Utilisations de fonctions, nouvelle syntaxe Java 8</li>
+						<li class="fragment"><code>stream.filter(i -&gt; i > 10)</code> : uniquement les éléments supérieurs à 10</li>
+						<li class="fragment"><code>stream.map(i -&gt; i * 2)</code> : doublement de chaque valeur</li>
+						<li class="fragment"><code>stream.flatMap(i -&gt; IntStream.range(i - 5, i + 5))</code> : aggrégation de tous les streams</li>
+						<li class="fragment"><code>stream.sorted()</code> : tri naturel</li>
+						<li class="fragment"><code>stream.distinct()</code> : sans doublon</li>
+						<li class="fragment"><code>stream.limit(10)</code> : nombre maximum</li>
+					</ul>
+
+					<aside class="notes">
+						Notes
+					</aside>
+				</section>
+
+
+				<section id="resultat">
+					<h2>stream() : résultat</h2>
+					<ul>
+						<li>Aggrégation du flux</li>
+						<li class="fragment"><code>s.count()</code> : nombre d'éléments</li>
+						<li class="fragment"><code>s.collect(Collectors.toList())</code> : Création d'une liste</li>
+						<li class="fragment"><code>s.collect(Collectors.toArray(sz -&gt; new E[sz]))</code> : Création d'un tableau</li>
+						<li class="fragment"><code>s.collect(Collectors.toMap(e -&gt; e.key, e -&gt; e.value))</code> : Création d'une map</li>
+						<li class="fragment"><code>s.collect(Collectors.groupingBy(e -&gt; e.age))</code> : Regroupement des éléments par âge dans une map</li>
+					</ul>
+
+					<aside class="notes">
+						Notes
+					</aside>
+				</section>
+
+				<section id="legacy">
+					<h2>Quelques fonctions bien pratiques</h2>
+					<ul>
+						<li>list.forEach(v -&gt; ...)</li>
+						<li>map.forEach((k, v) -&gt; ...)</li>
+						<li>Arrays.asStream(tableau)</li>
+					</ul>
+
+					<aside class="notes">
+						Notes
+					</aside>
+				</section>
+				</section>
+
+				<section>
 					<section>
 						<p>Exemple 1 : legacy</p>
 						<p>Concaténation de chaines avec un séparateur virgule</p>
@@ -121,13 +189,14 @@ resultat = strings.stream().collect(Collectors.joining(", "));
 System.out.println(resultat);
 						</code></pre>
 					</section>
+				</section>
 
-
+				<section>
 					<section>
 						<p>Exemple 2 : legacy</p>
 						<p>Lecture et traitement d'un fichier CSV</p>
 						<pre class="fragment"><code data-trim>
-Map&lt;String, String&gt; lignes = new TreeMap&lt;&gt;();
+Map&lt;String, String&gt; lignes = new HashMap&lt;&gt;();
 BufferedReader br = new BufferedReader(new FileReader(csvFile));
 String line;
 boolean first = true;
@@ -150,32 +219,18 @@ for (Entry&lt;String, String&gt; entry : lignes.entrySet()) {
 						<pre><code data-trim>
 try (Stream&lt;String&gt; lines = Files.lines(csvFile.toPath())) {
 	Map&lt;String, String&gt; resultat = lines.skip(1)
-			.map(s -> s.split(","))
+			.map(s -&gt; s.split(","))
 			.collect(
-				Collectors.toMap(s -> s[0], s -> s[2])
+				Collectors.toMap(s -&gt; s[0], s -&gt; s[2])
 			);
-	resultat.forEach((r, n) -> System.out.println(r + " : " + n));
+	resultat.forEach((r, n) -&gt; System.out.println(r + " : " + n));
 }
 						</code></pre>
-						<p class="fragment"><code>resultat</code> est une HashMap mais pas une TreeMap...</p>
 					</section>
 
-					<section>
-						<p>Exemple 2 : Java 8</p>
-						<pre><code data-trim>
-try (Stream&lt;String&gt; lines = Files.lines(csvFile.toPath())) {
-	Map&lt;String, String&gt; resultat = lines.skip(1)
-			.map(s -> s.split(","))
-			.collect(
-				Collectors.toMap(s -> s[0], s -> s[2],
-					(a, b) -> a, TreeMap::new)
-			);
-	resultat.forEach((r, n) -> System.out.println(r + " : " + n));
-}
-						</code></pre>
-						<p class="fragment"><code>Collectors.toMap</code> prends soit deux fonctions (mappers clé/valeur), soit quatre...</p>
-					</section>
+				</section>
 
+				<section>
 					<section>
 						<p>Exemple 3 : legacy</p>
 						<p>Parcours récursif d'un dossier</p>
@@ -202,36 +257,94 @@ private static void scan(File file) {
 						<p>Exemple 3 : Java 8</p>
 						<pre><code data-trim>
 try (Stream&lt;Path&gt; files = Files.walk(racine.toPath())) {
-	files.filter(p -> p.getFileName().toString()
+	files.filter(p -&gt; p.getFileName().toString()
 		.endsWith(".java")).forEach(System.out::println);
 }
 						</code></pre>
-						<p class="fragment">Pourquoi appeler <code>toString()</code> sur le <code>getFileName()</code>?</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<p>Exemple 4</p>
+						<p>Recherche des stations physiques par nom sur le réseau de la TAN</p>
+						<p>Trié par nombre de stations puis par nom de l'arrêt</p>
+						<p>Première étape :</p>
+						<pre><code data-trim>
+Map&lt;String, List&lt;Stop&gt;&gt; stops = gtfsDao.getAllStops().stream()
+		.collect(Collectors.groupingBy(stop -&gt; stop.getName()));
+						</code></pre>
 					</section>
 
 					<section>
-						<p>Exemple 3 : Java 8</p>
+						<p>Exemple 4</p>
+						<p>Seconde étape : trié par nombre de stations puis par nom de l'arrêt</p>
 						<pre><code data-trim>
-try (Stream&lt;Path&gt; files = Files.walk(racine.toPath())) {
-	files.filter(p -> p.getFileName()
-		.endsWith(".java")).forEach(System.out::println);
-}
+Comparator&lt;Entry&lt;String, List&lt;Stop&gt;&gt;&gt; comparator1 =
+	(e1, e2) -&gt;
+		-Integer.compare(e1.getValue().size(), e2.getValue().size());
+Comparator&lt;Entry&lt;String, List&lt;Stop&gt;&gt;&gt; comparator2 =
+	(e1, e2) -&gt;
+		Collator.getInstance().compare(e1.getKey(), e2.getKey());
+
+stops.entrySet().stream()
+	.sorted(comparator1.thenComparing(comparator2))
+	.forEach(e -&gt;
+		System.out.println(e.getKey() + " " + e.getValue().size()));
 						</code></pre>
-						<p class="fragment">N'affiche rien...</p>
-						<p class="fragment">Path.endsWith : Tests if this path ends with a {@code Path}, constructed by converting the given path string</p>
-						<p class="fragment">Le Path.endsWith est équivalent à Path.getFileName.equals...</p>
 					</section>
+					<section>
+						<p>Exemple 4</p>
+						<p>Variante : premiers départs par arrêt</p>
+						<pre><code data-trim>
+Comparator&lt;StopTime&gt; comparateur =
+	(st1, st2) -&gt;
+		Integer.compare(st1.getDepartureTime(), st2.getDepartureTime());
+
+Map&lt;String, Optional&lt;StopTime&gt;&gt; stopsMap =
+	gtfsDao.getAllStopTimes()
+	.stream().collect(Collectors.groupingBy(
+		st -&gt; st.getStop().getName(),
+		Collectors.minBy(comparateur)));
+
+stopsMap.values().stream().map(ost -&gt; ost.get())
+	.forEach(st -&gt; System.out.println(st));
+						</code></pre>
+					</section>
+
+				</section>
+					
+				<section>
+				<section>
+					<p>Exemple complet : entrants</p>
+					<p><a href="http://data.nantes.fr">data.nantes.fr</a> pour la TAN (format GTFS)</p>
+					<p><a href="https://mapzen.com/metro-extracts/">data.nantes.fr</a> pour l'extrait OpenStreetMap sur Nantes</p>
+					<p><a href="https://github.com/OneBusAway/onebusaway-gtfs-modules">onebusaway-gtfs</a> pour parser le GTFS</p>
+					<p><a href="https://graphhopper.com/">Graphhopper</a> pour les itinéraires piétons</p>
+				</section>
+				<section>
+					<p>Exemple complet : résultat</p>
+					<p>Demande d'un itinéraire entre deux noms de station, avec une date et une heure de départ</p>
+					<p>Retourne le meilleur résultat, en combinant marche à pied et transports en commun</p>
+					<p>Exporte le résultat dans Google Earth</p>
+					<p>Pas très optimisé...</p>
+				</section>
+				</section>
 
 				<section id="conclusion">
 					<h2>Problématiques</h2>
 					<ul>
 						<li>Javadoc pas toujours clair</li>
+						<li class="fragment">Nouveaux problèmes dont on n'a pas l'habitude...</li>
 						<li class="fragment">Difficulté de debugger</li>
 					</ul>
 				</section>
 
 				<section id="questions">
 					<h3>Questions?</h3>
+					<p><a href="https://glandais.github.io/jug-java8">slides</a></p>
+					<p><a href="https://github.com/glandais/jug-java8">code</a></p>
 				</section>
 
 			</div>
@@ -253,6 +366,11 @@ try (Stream&lt;Path&gt; files = Files.walk(racine.toPath())) {
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+				keyboard: {
+					33: 'prev',
+					34: 'next',
+				},
+  
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
