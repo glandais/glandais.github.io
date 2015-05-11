@@ -62,22 +62,29 @@
 					</ul>
 
 					<aside class="notes">
-						Notes
+						Présentation par José Paumard le 4 décembre 2013
+						Disponible depuis le 18 mars 2014
+						stream() et λ
+						Date / Time (Joda-Time)
 					</aside>
 				</section>
 				
 				<section id="objectifs">
 					<h2>Objectif</h2>
 					<ul>
-						<li>Présenter le quickie "gagné" en décembre</li>
-						<li class="fragment">Utliser Java8 dans des cas concrets</li>
+						<li>Présenter le quickie tiré au sort en décembre</li>
+						<li class="fragment">Utiliser Java8 dans un cas concret</li>
 						<li class="fragment">Deux semaines pour préparer</li>
+						<li class="fragment">Calculateur d'itinéraire sur réseau TAN</li>
 						<li class="fragment">Focus sur l'API Stream</li>
-						<li class="fragment">Calcul d'itinéraire TAN en bonus</li>
 					</ul>
 
 					<aside class="notes">
-						Notes
+						Présenter le quickie tiré au sort en décembre
+						Utiliser Java8 dans un cas concret
+						Deux semaines pour préparer depuis 0
+						Calculateur d'itinéraire sur réseau TAN
+						Focus sur l'API Stream
 					</aside>
 				</section>
 
@@ -86,14 +93,29 @@
 				<section>
 				<section id="presentation">
 					<h2>Stream : Présentation</h2>
-					<img src="stream.jpg" />
+					<img src="stream.jpg" width="100%" />
 					<ul>
 						<li>Flux de données</li>
 						<li>Parallélisable sous certaines conditions</li>
 						<li>Utilisation de fonctions sans classe dédiée</li>
-						<li>Exemple : <code>Collections.sort(list, (v1, v2) -&gt; Integer.compare(v1, v2))</code></li>
 					</ul>
+					<aside class="notes">
+						Notes
+					</aside>
+				</section>
 
+				<section id="exemple0">
+					<h2>Stream : Présentation</h2>
+					<img src="stream.jpg" width="100%" />
+					<p></p>
+					<pre><code data-trim>
+list.stream()
+	.filter(p -> p.age > 18)
+	.sort((p1, p2) ->
+		(Integer.compare(p1.salaire, p2.salaire)))
+	.flatMap(p -> p.parents.stream())
+	.forEach(p -> System.out.println(p));
+</code></pre>
 					<aside class="notes">
 						Notes
 					</aside>
@@ -103,14 +125,18 @@
 					<h2>stream() : initialisation</h2>
 					<ul>
 						<li>Création d'un flux à partir d'une source de données, ne peut être utilisé qu'une fois</li>
-						<li class="fragment">Lazy loading : les données ne sont pas chargés à la construction du stream</li>
+						<li>Lazy loading : les données ne sont pas chargés à la construction du stream</li>
 						<li class="fragment"><code>collection.stream()</code> : flux des éléments de la collection</li>
 						<li class="fragment"><code>Files.lines(path)</code> : flux des lignes d'un fichier</li>
 						<li class="fragment"><code>IntStream.iterate(1, i -&gt; i + 1)</code> : flux auto incrémenté</li>
 					</ul>
 
 					<aside class="notes">
-						Notes
+						Création d'un flux à partir d'une source de données, ne peut être utilisé qu'une fois
+						Lazy loading : les données ne sont pas chargés à la construction du stream
+						collection.stream() : flux des éléments de la collection
+						Files.lines(path) : flux des lignes d'un fichier
+						IntStream.iterate(1, i -&gt; i + 1) : flux auto incrémenté
 					</aside>
 				</section>
 
@@ -120,16 +146,19 @@
 					<ul>
 						<li>Création d'un nouveau flux</li>
 						<li>Utilisations de fonctions, nouvelle syntaxe Java 8</li>
-						<li class="fragment"><code>stream.filter(i -&gt; i > 10)</code> : uniquement les éléments supérieurs à 10</li>
-						<li class="fragment"><code>stream.map(i -&gt; i * 2)</code> : doublement de chaque valeur</li>
-						<li class="fragment"><code>stream.flatMap(i -&gt; IntStream.range(i - 5, i + 5))</code> : aggrégation de tous les streams</li>
-						<li class="fragment"><code>stream.sorted()</code> : tri naturel</li>
-						<li class="fragment"><code>stream.distinct()</code> : sans doublon</li>
-						<li class="fragment"><code>stream.limit(10)</code> : nombre maximum</li>
+						<li><code>stream.filter(i -&gt; i > 10)</code> : uniquement les éléments supérieurs à 10</li>
+						<li class="fragment" data-fragment-index="1"><code>stream.map(i -&gt; i * 2)</code> : doublement de chaque valeur</li>
+						<li class="fragment" data-fragment-index="2"><code>stream.sorted()</code> : tri naturel</li>
+						<li class="fragment" data-fragment-index="2"><code>stream.distinct()</code> : sans doublon</li>
 					</ul>
 
 					<aside class="notes">
-						Notes
+						<li>Création d'un nouveau flux</li>
+						<li>Utilisations de fonctions, nouvelle syntaxe Java 8</li>
+						<li<code>stream.filter(i -&gt; i > 10)</code> : uniquement les éléments supérieurs à 10</li>
+						<li class="fragment" data-fragment-index="1"><code>stream.map(i -&gt; i * 2)</code> : doublement de chaque valeur</li>
+						<li class="fragment" data-fragment-index="2"><code>stream.sorted()</code> : tri naturel</li>
+						<li class="fragment" data-fragment-index="2"><code>stream.distinct()</code> : sans doublon</li>
 					</aside>
 				</section>
 
@@ -139,10 +168,11 @@
 					<ul>
 						<li>Aggrégation du flux</li>
 						<li class="fragment"><code>s.count()</code> : nombre d'éléments</li>
+						<li class="fragment"><code>s.reduce(0, p -> p.age, Integer::sum)</code> : somme des âges</li>
 						<li class="fragment"><code>s.collect(Collectors.toList())</code> : Création d'une liste</li>
 						<li class="fragment"><code>s.collect(Collectors.toArray(sz -&gt; new E[sz]))</code> : Création d'un tableau</li>
-						<li class="fragment"><code>s.collect(Collectors.toMap(e -&gt; e.key, e -&gt; e.value))</code> : Création d'une map</li>
-						<li class="fragment"><code>s.collect(Collectors.groupingBy(e -&gt; e.age))</code> : Regroupement des éléments par âge dans une map</li>
+						<li class="fragment"><code>s.collect(Collectors.toMap(p -&gt; p.nom, p -&gt; p.age))</code> : Création d'une map</li>
+						<li class="fragment"><code>s.collect(Collectors.groupingBy(p -&gt; p.age))</code> : Regroupement des éléments par âge dans une map</li>
 					</ul>
 
 					<aside class="notes">
@@ -284,9 +314,11 @@ Map&lt;String, List&lt;Stop&gt;&gt; stops = gtfsDao.getAllStops().stream()
 Comparator&lt;Entry&lt;String, List&lt;Stop&gt;&gt;&gt; comparator1 =
 	(e1, e2) -&gt;
 		-Integer.compare(e1.getValue().size(), e2.getValue().size());
+Collator collator = Collator.getInstance();
+collator.setStrength(Collator.PRIMARY);
 Comparator&lt;Entry&lt;String, List&lt;Stop&gt;&gt;&gt; comparator2 =
 	(e1, e2) -&gt;
-		Collator.getInstance().compare(e1.getKey(), e2.getKey());
+		collator.compare(e1.getKey(), e2.getKey());
 
 stops.entrySet().stream()
 	.sorted(comparator1.thenComparing(comparator2))
@@ -317,34 +349,66 @@ stopsMap.values().stream().map(ost -&gt; ost.get())
 					
 				<section>
 				<section>
-					<p>Exemple complet : entrants</p>
-					<p><a href="http://data.nantes.fr">data.nantes.fr</a> pour la TAN (format GTFS)</p>
-					<p><a href="https://mapzen.com/metro-extracts/">data.nantes.fr</a> pour l'extrait OpenStreetMap sur Nantes</p>
-					<p><a href="https://github.com/OneBusAway/onebusaway-gtfs-modules">onebusaway-gtfs</a> pour parser le GTFS</p>
-					<p><a href="https://graphhopper.com/">Graphhopper</a> pour les itinéraires piétons</p>
+					<h2>Exemple complet : entrants</h2>
+					<ul>
+						<li><a href="http://data.nantes.fr">data.nantes.fr</a> pour la TAN (format GTFS)</li>
+						<li><a href="https://mapzen.com/metro-extracts/">metro-extracts</a> pour l'extrait OpenStreetMap sur Nantes</li>
+						<li><a href="https://github.com/OneBusAway/onebusaway-gtfs-modules">onebusaway-gtfs</a> pour parser le GTFS</li>
+						<li><a href="https://graphhopper.com/">Graphhopper</a> pour les itinéraires piétons</li>
+					</ul>
 				</section>
 				<section>
-					<p>Exemple complet : résultat</p>
-					<p>Demande d'un itinéraire entre deux noms de station, avec une date et une heure de départ</p>
-					<p>Retourne le meilleur résultat, en combinant marche à pied et transports en commun</p>
-					<p>Exporte le résultat dans Google Earth</p>
-					<p>Pas très optimisé...</p>
+					<h2>Exemple complet : résultat</h2>
+					<ul>
+						<li>Demande d'un itinéraire entre deux noms de station, avec une date et une heure de départ</li>
+						<li>Retourne le meilleur résultat, en combinant marche à pied et transports en commun</li>
+						<li>Exporte le résultat dans Google Earth</li>
+						<li>Pas très optimisé...</li>
+					</ul>
 				</section>
+				
+				<section data-background="image1.jpg">
+				</section>
+				<section data-background="image2.jpg">
+				</section>
+				<section data-background="image3.jpg">
 				</section>
 
-				<section id="conclusion">
-					<h2>Problématiques</h2>
+				</section>
+
+				<section>
+				<section>
+					<h2>Conclusion : problématiques</h2>
 					<ul>
-						<li>Javadoc pas toujours clair</li>
-						<li class="fragment">Nouveaux problèmes dont on n'a pas l'habitude...</li>
-						<li class="fragment">Difficulté de debugger</li>
+						<li>Passage de l'impératif au fonctionnel</li>
+						<li class="fragment">Nouvelles écritures du code</li>
+						<li class="fragment">Nouvelles APIs à connaître</li>
+						<li class="fragment">Nouveaux problèmes!</li>
+						<li class="fragment">Difficulté pour debugger</li>
+						<li class="fragment">Utilisation du processeur au détriment de la mémoire</li>
 					</ul>
+					
+					<aside class="notes">
+						Impossible de réutiliser un flux...
+					</aside>
+				</section>
+				<section>
+					<h2>Conclusion : avantages</h2>
+					<ul>
+						<li>Réduction du nombre de lignes de codes</li>
+						<li class="fragment">Donc d'erreurs!</li>
+						<li class="fragment">Adapté au traitement de volumes moyens</li>
+						<li class="fragment">Prototypage plus rapide</li>
+					</ul>
+				</section>
 				</section>
 
 				<section id="questions">
 					<h3>Questions?</h3>
-					<p><a href="https://glandais.github.io/jug-java8">slides</a></p>
-					<p><a href="https://github.com/glandais/jug-java8">code</a></p>
+					<ul>
+						<li>Slides : <a href="https://glandais.github.io/jug-java8">https://glandais.github.io/jug-java8</a></li>
+						<li>Code : <a href="https://github.com/glandais/jug-java8">https://github.com/glandais/jug-java8</a></li>
+					<ul>
 				</section>
 
 			</div>
