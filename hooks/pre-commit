@@ -1,13 +1,20 @@
 #!/bin/bash
 set -e
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
-echo "Pre-commit: building DOCX, PDF and site..."
-uv run python -m scripts.build all --lang fr
+# Clean previous build
+rm -rf dist/docx dist/pdf
+
+echo "Pre-commit: building DOCX..."
+uv run python -m scripts.build docx --lang fr
+echo "Pre-commit: building PDF..."
+uv run python -m scripts.build pdf --lang fr
+echo "Pre-commit: building site..."
+uv run python -m scripts.build site --lang fr
 
 echo "Pre-commit: copying downloads to docs/..."
 mkdir -p docs/downloads
