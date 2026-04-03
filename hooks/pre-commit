@@ -1,10 +1,19 @@
 #!/bin/bash
-set -e
 
 export PATH="$HOME/.local/bin:$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
+
+LOG="$REPO_ROOT/pre-commit.log"
+exec > >(tee "$LOG") 2>&1
+
+set -e
+
+echo "=== Pre-commit $(date) ==="
+echo "PATH: $PATH"
+echo "uv: $(which uv)"
+echo "python: $(uv run python --version)"
 
 # Clean previous build
 rm -rf dist/docx dist/pdf
