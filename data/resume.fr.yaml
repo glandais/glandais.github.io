@@ -303,15 +303,9 @@ projects:
 
   - name: "brevets.bike"
     url: "https://www.brevets.bike"
-    description: "Analyse de tracés GPS pour la gamification de la grande randonnée cycliste (brevets ACP)"
+    description: "Analyse de tracés GPS et validation électronique pour épreuves de grande randonnée cycliste et ultra-cyclisme (brevets ACP)"
     status: "en ligne"
-    keywords: ["Python", "numpy", "Flask", "MongoDB", "Kafka", "Docker"]
-
-  - name: "Validation électronique d'épreuves cyclistes longue distance"
-    url: ""
-    description: "Système de validation électronique pour épreuves d'ultra-cyclisme"
-    status: "archivé"
-    keywords: ["GPS", "cyclisme", "validation"]
+    keywords: ["Python", "numpy", "Flask", "MongoDB", "Kafka", "Docker", "GPS"]
 
 languages:
   - language: "Français"
