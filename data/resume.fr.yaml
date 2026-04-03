@@ -295,17 +295,11 @@ education:
     location: "Nantes"
 
 projects:
-  - name: "Tribly"
-    url: ""
-    description: "Plateforme SaaS multi-tenant pour la gestion de clubs cyclistes (inscriptions, résultats, planning)"
-    status: "en développement"
-    keywords: ["Quarkus", "Vue 3", "PostgreSQL", "Keycloak", "Multi-tenant"]
-
   - name: "Pedalons"
     url: "https://pedalons.fr"
-    description: "Plateforme communautaire pour organiser des sorties cyclistes et partager des routes GPX"
+    description: "Plateforme SaaS multi-tenant pour clubs cyclistes : gestion d'inscriptions, résultats, planning, sorties et partage de routes GPX"
     status: "en développement"
-    keywords: ["MapLibre", "GPX", "PMTiles", "Tippecanoe", "Vue 3"]
+    keywords: ["Quarkus", "Vue 3", "PostgreSQL", "Keycloak", "Multi-tenant", "MapLibre", "GPX", "PMTiles"]
 
   - name: "brevets.bike"
     url: "https://www.brevets.bike"
