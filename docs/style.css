@@ -1,0 +1,69 @@
+:root {
+  --primary: #2563eb;
+  --text: #1e293b;
+  --muted: #64748b;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--surface);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg);
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container { margin: 2rem auto; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+}
+
+header { text-align: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border); }
+h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+.label { font-size: 1.1rem; color: var(--muted); margin-bottom: 0.75rem; }
+.contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; font-size: 0.9rem; margin-bottom: 1rem; }
+.contact a { color: var(--primary); text-decoration: none; }
+.contact a:hover { text-decoration: underline; }
+
+.downloads { display: flex; justify-content: center; gap: 0.75rem; }
+.btn {
+  display: inline-block; padding: 0.5rem 1rem; background: var(--primary); color: white;
+  text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: 500;
+}
+.btn:hover { opacity: 0.9; }
+
+section { margin-bottom: 1.5rem; }
+h2 { font-size: 1.25rem; color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 0.25rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1rem; }
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
+.skill-group h3 { font-size: 0.9rem; margin-bottom: 0.25rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.tag {
+  background: var(--surface); border: 1px solid var(--border); padding: 0.15rem 0.5rem;
+  border-radius: 4px; font-size: 0.8rem;
+}
+
+.entry { margin-bottom: 1rem; }
+.entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+.date { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+.company { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.25rem; }
+.badge {
+  background: var(--primary); color: white; padding: 0.1rem 0.4rem;
+  border-radius: 3px; font-size: 0.75rem; font-weight: 500; vertical-align: middle;
+}
+ul { margin: 0.25rem 0 0.5rem 1.5rem; }
+li { margin-bottom: 0.15rem; font-size: 0.95rem; }
+.stack { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+
+footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+footer a { color: var(--primary); text-decoration: none; }
