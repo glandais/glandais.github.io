@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{ data.meta.lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ data.basics.name }} — CV</title>
+<style>
+  @page { size: A4; margin: 2cm; }
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.4; color: #222; }
+  h1 { font-size: 14pt; text-align: center; margin: 0 0 2pt 0; }
+  .label { text-align: center; font-size: 11pt; margin: 0 0 4pt 0; }
+  .contact { text-align: center; font-size: 10pt; color: #444; margin-bottom: 12pt; }
+  h2 { font-size: 12pt; border-bottom: 1px solid #999; padding-bottom: 2pt; margin: 12pt 0 6pt 0; }
+  .job-title { font-weight: bold; margin: 6pt 0 0 0; }
+  .job-meta { font-size: 10pt; color: #555; margin: 0 0 4pt 0; }
+  ul { margin: 2pt 0 6pt 18pt; padding: 0; }
+  li { margin-bottom: 2pt; }
+  .stack { font-size: 10pt; color: #555; margin: 2pt 0 8pt 0; }
+  .skill-cat { font-weight: bold; }
+  .project-title { font-weight: bold; }
+  .project-kw { font-size: 10pt; color: #555; }
+</style>
+</head>
+<body>
+  <h1>{{ data.basics.name }}</h1>
+  <p class="label">{{ data.basics.label }}</p>
+  <p class="contact">
+    {% set parts = [] %}
+    {% if data.basics.email %}{% set _ = parts.append(data.basics.email) %}{% endif %}
+    {% if data.basics.phone %}{% set _ = parts.append(data.basics.phone) %}{% endif %}
+    {% if data.basics.location and data.basics.location.city %}
+      {% set city = data.basics.location.city %}
+      {% if data.basics.location.postalCode %}{% set city = data.basics.location.postalCode ~ " " ~ city %}{% endif %}
+      {% set _ = parts.append(city) %}
+    {% endif %}
+    {% if data.basics.linkedin %}{% set _ = parts.append(data.basics.linkedin) %}{% endif %}
+    {% if data.basics.github %}{% set _ = parts.append(data.basics.github) %}{% endif %}
+    {{ parts | join(" | ") }}
+  </p>
+
+  {% if data.basics.summary %}
+  <h2>Profil</h2>
+  <p>{{ data.basics.summary | trim }}</p>
+  {% endif %}
+
+  {% if data.skills %}
+  <h2>Compétences</h2>
+  {% for group in data.skills %}
+  <p><span class="skill-cat">{{ group.category }} :</span> {{ group.keywords | join(", ") }}</p>
+  {% endfor %}
+  {% endif %}
+
+  {% if data.experience %}
+  <h2>Expérience professionnelle</h2>
+  {% for exp in data.experience %}
+  <p class="job-title">{{ exp.title }}{% if exp.freelance %} (Freelance){% endif %} — {{ exp.company }}</p>
+  <p class="job-meta">{{ exp.startDate }} – {{ exp.endDate or "Présent" }}{% if exp.location %} | {{ exp.location }}{% endif %}</p>
+  {% if exp.highlights %}
+  <ul>
+    {% for h in exp.highlights %}<li>{{ h }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  {% if exp.stack %}<p class="stack">Stack : {{ exp.stack }}</p>{% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if data.education %}
+  <h2>Formation</h2>
+  {% for edu in data.education %}
+  <p class="job-title">{{ edu.studyType }} {{ edu.area }} — {{ edu.institution }}</p>
+  <p class="job-meta">{{ edu.startDate }} – {{ edu.endDate }}{% if edu.location %} | {{ edu.location }}{% endif %}</p>
+  {% endfor %}
+  {% endif %}
+
+  {% if data.projects %}
+  <h2>Projets personnels</h2>
+  {% for proj in data.projects %}
+  <p><span class="project-title">{{ proj.name }}</span>{% if proj.url %} ({{ proj.url }}){% endif %} — {{ proj.description }}</p>
+  {% if proj.keywords %}<p class="project-kw">{{ proj.keywords | join(", ") }}</p>{% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if data.languages %}
+  <h2>Langues</h2>
+  {% for lang in data.languages %}
+  <p>{{ lang.language }} — {{ lang.fluency }}</p>
+  {% endfor %}
+  {% endif %}
+
+  {% if data.interests %}
+  <h2>Centres d'intérêt</h2>
+  <p>{{ data.interests | join(", ") }}</p>
+  {% endif %}
+</body>
+</html>
