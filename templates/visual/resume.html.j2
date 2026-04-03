@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="{{ data.meta.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ data.basics.name }} — {{ data.basics.label }}</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>{{ data.basics.name }}</h1>
+    <p class="label">{{ data.basics.label }}</p>
+    <div class="contact">
+      {% if data.basics.email %}<a href="mailto:{{ data.basics.email }}">{{ data.basics.email }}</a>{% endif %}
+      {% if data.basics.phone %}<span>{{ data.basics.phone }}</span>{% endif %}
+      {% if data.basics.location and data.basics.location.city %}<span>{{ data.basics.location.city }}</span>{% endif %}
+      {% if data.basics.linkedin %}<a href="https://{{ data.basics.linkedin }}">LinkedIn</a>{% endif %}
+      {% if data.basics.github %}<a href="https://{{ data.basics.github }}">GitHub</a>{% endif %}
+    </div>
+    <div class="downloads">
+      <a href="downloads/{{ filename_base }}.pdf" class="btn">Télécharger PDF</a>
+      <a href="downloads/{{ filename_base }}.docx" class="btn">Télécharger DOCX</a>
+    </div>
+  </header>
+
+  {% if data.basics.summary %}
+  <section>
+    <h2>Profil</h2>
+    <p>{{ data.basics.summary | trim }}</p>
+  </section>
+  {% endif %}
+
+  {% if data.skills %}
+  <section>
+    <h2>Compétences</h2>
+    <div class="skills-grid">
+      {% for group in data.skills %}
+      <div class="skill-group">
+        <h3>{{ group.category }}</h3>
+        <div class="tags">
+          {% for kw in group.keywords %}<span class="tag">{{ kw }}</span>{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if data.experience %}
+  <section>
+    <h2>Expérience professionnelle</h2>
+    {% for exp in data.experience %}
+    <article class="entry">
+      <div class="entry-header">
+        <h3>{{ exp.title }}{% if exp.freelance %} <span class="badge">Freelance</span>{% endif %}</h3>
+        <span class="date">{{ exp.startDate }} – {{ exp.endDate or "Présent" }}</span>
+      </div>
+      <p class="company">{{ exp.company }}{% if exp.location %} · {{ exp.location }}{% endif %}</p>
+      {% if exp.highlights %}
+      <ul>
+        {% for h in exp.highlights %}<li>{{ h }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      {% if exp.stack %}<p class="stack">{{ exp.stack }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if data.education %}
+  <section>
+    <h2>Formation</h2>
+    {% for edu in data.education %}
+    <article class="entry">
+      <div class="entry-header">
+        <h3>{{ edu.studyType }} {{ edu.area }}</h3>
+        <span class="date">{{ edu.startDate }} – {{ edu.endDate }}</span>
+      </div>
+      <p class="company">{{ edu.institution }}{% if edu.location %} · {{ edu.location }}{% endif %}</p>
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if data.projects %}
+  <section>
+    <h2>Projets personnels</h2>
+    {% for proj in data.projects %}
+    <article class="entry">
+      <h3>{{ proj.name }}{% if proj.url %} <a href="{{ proj.url }}">↗</a>{% endif %}{% if proj.status %} <span class="badge">{{ proj.status }}</span>{% endif %}</h3>
+      <p>{{ proj.description }}</p>
+      {% if proj.keywords %}
+      <div class="tags">{% for kw in proj.keywords %}<span class="tag">{{ kw }}</span>{% endfor %}</div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if data.languages %}
+  <section>
+    <h2>Langues</h2>
+    {% for lang in data.languages %}
+    <p><strong>{{ lang.language }}</strong> — {{ lang.fluency }}</p>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if data.interests %}
+  <section>
+    <h2>Centres d'intérêt</h2>
+    <p>{{ data.interests | join(" · ") }}</p>
+  </section>
+  {% endif %}
+
+  <footer>
+    <p>Généré depuis <a href="https://{{ data.basics.github }}">cv-as-code</a> · Dernière mise à jour : {{ data.meta.updated }}</p>
+  </footer>
+</div>
+</body>
+</html>
