@@ -48,7 +48,7 @@ hooks/                        # Git hooks versionnés
 
 ## Git hooks
 
-Le hook `pre-push` reconstruit automatiquement le DOCX, PDF et le site avant chaque push, et commite les fichiers mis à jour dans `docs/`.
+Le hook `pre-commit` reconstruit automatiquement le DOCX, PDF et le site avant chaque commit, et ajoute les fichiers générés dans `docs/` au commit.
 
 Installation :
 

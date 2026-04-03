@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+echo "Pre-commit: building DOCX, PDF and site..."
+uv run python -m scripts.build all --lang fr
+
+echo "Pre-commit: copying downloads to docs/..."
+mkdir -p docs/downloads
+cp dist/pdf/*.pdf docs/downloads/
+cp dist/docx/*.docx docs/downloads/
+
+git add docs/
+
+echo "Pre-commit: done."
