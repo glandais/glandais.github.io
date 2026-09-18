@@ -27,12 +27,13 @@
   
   <section>
     <h2>Profil</h2>
-    <p>Architecte logiciels freelance, diplômé de l'IMT Atlantique (2003),
+    <p>Architecte logiciel freelance, diplômé de l'IMT Atlantique (2003),
 avec plus de 20 ans d'expérience dans la conception et le développement de solutions
 Java/Cloud. Force de proposition, je co-construis des architectures performantes et
 modernes au service de besoins métiers complexes, avec une solide expertise technique,
 de fortes capacités d'analyse et un goût prononcé pour les environnements distribués
-et cloud-native.</p>
+et cloud-native. Pratique avancée du développement agentique (Claude Code) pour
+accélérer la conception, le prototypage et la livraison.</p>
   </section>
   
 
@@ -98,9 +99,9 @@ et cloud-native.</p>
       </div>
       
       <div class="skill-group">
-        <h3>IA générative</h3>
+        <h3>Développement assisté par IA</h3>
         <div class="tags">
-          <span class="tag">LLM</span><span class="tag">GitHub Copilot</span><span class="tag">JetBrains AI Assistant</span><span class="tag">GitLab Duo</span><span class="tag">ChatGPT</span>
+          <span class="tag">Claude Code (usage quotidien)</span><span class="tag">Développement agentique piloté par spécification</span><span class="tag">Sous-agents et workflows multi-agents</span><span class="tag">Extension d'agents : skills, hooks, commandes, plugins</span><span class="tag">Garde-fous qualité (tests, revue, CLAUDE.md)</span><span class="tag">LLM</span><span class="tag">GitHub Copilot</span>
         </div>
       </div>
       
@@ -347,17 +348,33 @@ et cloud-native.</p>
     
     <article class="entry">
       <h3>Pedalons <a href="https://pedalons.fr">↗</a> <span class="badge">en développement</span></h3>
-      <p>Plateforme SaaS multi-tenant pour clubs cyclistes : gestion d'inscriptions, résultats, planning, sorties et partage de routes GPX</p>
+      <p>Plateforme SaaS multi-tenant pour clubs cyclistes (sorties, séjours, routes GPX sur cartes interactives, communication) : backend Quarkus, SPA React, application mobile Flutter, extensions pour compteurs GPS Karoo et Garmin, API conçue par contrat OpenAPI. Conçue et développée en solo avec Claude Code (850+ commits en 9 mois) ; prolonge une contribution à la plateforme open source biketeam</p>
       
-      <div class="tags"><span class="tag">Quarkus</span><span class="tag">Vue 3</span><span class="tag">PostgreSQL</span><span class="tag">Keycloak</span><span class="tag">Multi-tenant</span><span class="tag">MapLibre</span><span class="tag">GPX</span><span class="tag">PMTiles</span></div>
+      <div class="tags"><span class="tag">Java 21</span><span class="tag">Quarkus</span><span class="tag">PostgreSQL</span><span class="tag">PostGIS</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">OpenAPI</span><span class="tag">Multi-tenant</span><span class="tag">Claude Code</span></div>
       
     </article>
     
     <article class="entry">
       <h3>brevets.bike <a href="https://www.brevets.bike">↗</a> <span class="badge">en ligne</span></h3>
-      <p>Analyse de tracés GPS et validation électronique pour épreuves de grande randonnée cycliste et ultra-cyclisme (brevets ACP)</p>
+      <p>Analyse de tracés GPS et validation électronique pour épreuves de grande randonnée cycliste et ultra-cyclisme (brevets ACP), en production depuis 2016</p>
       
       <div class="tags"><span class="tag">Python</span><span class="tag">numpy</span><span class="tag">Flask</span><span class="tag">MongoDB</span><span class="tag">Kafka</span><span class="tag">Docker</span><span class="tag">GPS</span></div>
+      
+    </article>
+    
+    <article class="entry">
+      <h3>vcyclist <a href="https://github.com/glandais/vcyclist">↗</a> <span class="badge">open source</span></h3>
+      <p>Moteur open source de simulation cycliste fondé sur la physique (puissance, W′bal, vitesse en virage et au freinage, correction d'altitude), porté de Java vers Kotlin Multiplatform (JVM, JS, Wasm) ; publié sur Maven Central et npm (~900 téléchargements/mois)</p>
+      
+      <div class="tags"><span class="tag">Kotlin Multiplatform</span><span class="tag">Java</span><span class="tag">TypeScript</span><span class="tag">WebAssembly</span><span class="tag">GPX</span><span class="tag">Maven Central</span><span class="tag">npm</span></div>
+      
+    </article>
+    
+    <article class="entry">
+      <h3>Bibliothèques open source <a href="https://github.com/glandais">↗</a> <span class="badge">open source</span></h3>
+      <p>nmt-metrics : suivi de la mémoire native JVM en conteneur via Micrometer/Prometheus (Maven Central) ; SDK non officiels du format FIT de Garmin pour Kotlin Multiplatform et Dart, générés par rétro-ingénierie du générateur officiel (Maven Central, npm) ; leaflet-relief et elevation : relief, pentes et altimétrie cartographiques (~1 100 téléchargements npm/mois)</p>
+      
+      <div class="tags"><span class="tag">Java</span><span class="tag">Micrometer</span><span class="tag">Prometheus</span><span class="tag">Kotlin Multiplatform</span><span class="tag">Dart</span><span class="tag">TypeScript</span><span class="tag">Leaflet</span><span class="tag">Génération de code</span></div>
       
     </article>
     
