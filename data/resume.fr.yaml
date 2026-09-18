@@ -154,11 +154,38 @@ skills:
       - "Code review"
 
 experience:
+  - title: "Architecte / Développeur expert Java – Authentification forte et cryptographie"
+    company: "Nickel (BNP Paribas)"
+    freelance: true
+    startDate: "2025-02"
+    highlights:
+      - "Squad authentification forte, SCA, DSP2 et cryptographie d'une néobanque de plusieurs millions de clients : conception, développement et mise en production de microservices Java critiques"
+      - "Conception et développement d'un service de cryptographie centralisé sur HSM (signature JWS, chiffrement AES-GCM, rotation de clés) pour les paiements instantanés européens (Wero) et les terminaux de paiement, en périmètre PCI-DSS ; responsable de la première mise en production ; implémentation d'AES-DUKPT (ANSI X9.24-3) validée avec l'éditeur du HSM"
+      - "Performance : débit du service de cryptographie multiplié par 32 à 41 (p95 de 0,8 s à 27 ms) ; campagnes Gatling jusqu'à 17 800 req/s ; diagnostic d'OOMKill et harmonisation du dimensionnement JVM sous Kubernetes, CPU par requête réduit de 38 à 50 %"
+      - "Authentification forte : validation sur appareil de confiance remplaçant l'OTP SMS (enrôlement, webhooks, circuit breaker partagé entre pods), parcours de consentement Open Banking DSP2 de bout en bout (API, BFF, React), migrations SQL Server sans interruption sur des tables de plusieurs dizaines de millions de lignes"
+      - "Socle et gouvernance : migration Spring Boot 4 de la bibliothèque socle, Problem Details (RFC 9457), règles ArchUnit de contrat d'API, null-safety NullAway ; POC de serveur d'autorisation OAuth 2.1 / OIDC (PKCE, PAR, DPoP), ADR et formation des développeurs"
+      - "Développement agentique au quotidien avec Claude Code, connecté aux outils de l'équipe par MCP (JIRA, GitLab, Kubernetes, Prometheus) avec orchestration multi-agents ; relecture automatique des merge requests par IA intégrée à la CI"
+    stack: "Java 21/25, Spring Boot 3/4, Spring Security, Kafka, SQL Server, HSM (PKCS#11), React, Kubernetes, Helm, ArgoCD, GitLab CI, Prometheus, Grafana, Gatling"
+    keywords_ats:
+      - "Authentification forte"
+      - "SCA"
+      - "DSP2"
+      - "Open Banking"
+      - "HSM"
+      - "PCI-DSS"
+      - "Cryptographie"
+      - "Spring Boot"
+      - "Kafka"
+      - "Kubernetes"
+      - "Tests de performance"
+      - "OAuth2 / OIDC"
+      - "Banque / Paiement"
+
   - title: "Architecte solution – Référentiel Client Unique"
     company: "BNP Paribas Personal Finance (Cetelem)"
     freelance: true
-    startDate: "2024-10"
-    endDate: "2025-03"
+    startDate: "2024-09"
+    endDate: "2025-02"
     location: "Nantes"
     highlights:
       - "Cadrage de la refonte des référentiels clients d'un grand acteur du crédit à la consommation en un Référentiel Client Unique (RCU) partagé par l'ensemble de la DSI, en lien avec les architectes et le centre d'excellence Architecture"
