@@ -1,6 +1,6 @@
 meta:
   version: "1.0"
-  updated: "2025-04"
+  updated: "2026-09"
   lang: "fr"
 
 basics:
@@ -33,9 +33,11 @@ skills:
       - "12-factor app"
       - "Reactive"
       - "Microservices"
-      - "KISS"
-      - "DRY"
+      - "CQRS"
+      - "Event-driven"
       - "Domain-Driven Design"
+      - "SOLID"
+      - "Référentiels clients (MDM, golden record, vision 360)"
       - "Model Driven Architecture (UML, Acceleo)"
       - "OpenAPI"
 
@@ -53,7 +55,6 @@ skills:
       - "QueryDSL"
       - "jOOQ"
       - "Panache"
-      - "OAuth2 / JWT"
       - "SOAP (JAX-WS)"
       - "Diagnostic JVM (profiling, GC, concurrence)"
 
@@ -105,6 +106,23 @@ skills:
       - "Nexus"
       - "Traefik / Nginx"
 
+  - category: "Sécurité"
+    keywords:
+      - "OAuth2 / OIDC"
+      - "JWT"
+      - "Keycloak"
+      - "Azure AD"
+      - "OWASP"
+      - "PKI / TLS"
+
+  - category: "IA générative"
+    keywords:
+      - "LLM"
+      - "GitHub Copilot"
+      - "JetBrains AI Assistant"
+      - "GitLab Duo"
+      - "ChatGPT"
+
   - category: "Monitoring & Observabilité"
     keywords:
       - "Prometheus"
@@ -127,11 +145,36 @@ skills:
 
   - category: "Méthodologies"
     keywords:
-      - "Agile (SCRUM)"
+      - "Agile (Scrum, SAFe)"
+      - "Jira / Confluence"
       - "TDD"
       - "Code review"
 
 experience:
+  - title: "Architecte solution – Référentiel Client Unique"
+    company: "BNP Paribas Personal Finance (Cetelem)"
+    freelance: true
+    startDate: "2024-10"
+    endDate: "2025-03"
+    location: "Nantes"
+    highlights:
+      - "Cadrage de la refonte des référentiels clients d'un grand acteur du crédit à la consommation en un Référentiel Client Unique (RCU) partagé par l'ensemble de la DSI, en lien avec les architectes et le centre d'excellence Architecture"
+      - "Analyse de l'existant (référentiels multiples, synchronisations différées) et des retours d'expérience d'autres entités du groupe"
+      - "Définition de la cible : golden record centré personne (identité unique, contrats, moyens de contact contextualisés), vision 360 alimentée en temps réel, gestion des comptes utilisateur et des consentements RGPD"
+      - "Architecture CQRS et hexagonale pilotée par les événements, alignée sur les standards techniques du groupe"
+      - "Trajectoire de migration progressive (double run, puis décommissionnement de l'existant), présentée en comité pour la décision d'investissement"
+    stack: "Java, Spring Boot, CQRS, Architecture hexagonale, Event-driven, API Management, RGPD"
+    keywords_ats:
+      - "Architecte solution"
+      - "Référentiel client unique"
+      - "RCU"
+      - "MDM"
+      - "Golden record"
+      - "Vision 360"
+      - "CQRS"
+      - "RGPD"
+      - "Banque / Crédit"
+
   - title: "Architecte logiciel"
     company: "Maisons Du Monde"
     freelance: true
@@ -140,7 +183,8 @@ experience:
     location: "Nantes"
     highlights:
       - "Conception et mise en œuvre du programme de fidélité omnicanal (web et magasin) en quelques mois : intégration des données data, web et caisses, calcul des offres selon le statut, APIs synchrones et asynchrones"
-      - "Architecte de l'équipe Care/Marketing, responsable du référentiel clients omnicanal : centralisation des données, diffusion par API aux partenaires internes/externes, intégration Captain Wallet (carte de fidélité dématérialisée)"
+      - "Architecte de l'équipe Care/Marketing, responsable du Référentiel Client Unique omnicanal : centralisation des données, exposition par API et diffusion des modifications aux partenaires internes (Microsoft Dynamics, Magento, caisses) et externes (Selligent, Captain Wallet)"
+      - "Étude des Customer Data Platforms (CDP) pour en reprendre les bonnes pratiques (dédoublonnage, resynchronisation)"
       - "Cadrage de chaque problématique métier ou défaut de conception, avec des solutions efficientes adaptées à la capacité de l'équipe et aux standards de la DSI"
       - "Deux jours par semaine au sein de l'équipe des architectes Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification"
       - "Usine logicielle : outillage de build pour la migration de Rancher interne vers GKE"
@@ -153,6 +197,7 @@ experience:
       - "API REST"
       - "Omnicanal"
       - "Programme de fidélité"
+      - "Référentiel client"
 
   - title: "Architecte logiciel"
     company: "Baya"

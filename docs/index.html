@@ -44,14 +44,14 @@ et cloud-native.</p>
       <div class="skill-group">
         <h3>Architecture</h3>
         <div class="tags">
-          <span class="tag">Architecture hexagonale</span><span class="tag">Cloud native</span><span class="tag">12-factor app</span><span class="tag">Reactive</span><span class="tag">Microservices</span><span class="tag">KISS</span><span class="tag">DRY</span><span class="tag">Domain-Driven Design</span><span class="tag">Model Driven Architecture (UML, Acceleo)</span><span class="tag">OpenAPI</span>
+          <span class="tag">Architecture hexagonale</span><span class="tag">Cloud native</span><span class="tag">12-factor app</span><span class="tag">Reactive</span><span class="tag">Microservices</span><span class="tag">CQRS</span><span class="tag">Event-driven</span><span class="tag">Domain-Driven Design</span><span class="tag">SOLID</span><span class="tag">Référentiels clients (MDM, golden record, vision 360)</span><span class="tag">Model Driven Architecture (UML, Acceleo)</span><span class="tag">OpenAPI</span>
         </div>
       </div>
       
       <div class="skill-group">
         <h3>Backend</h3>
         <div class="tags">
-          <span class="tag">Java</span><span class="tag">Quarkus</span><span class="tag">Spring Boot</span><span class="tag">Spring</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">REST</span><span class="tag">JPA/Hibernate</span><span class="tag">Spring Data</span><span class="tag">QueryDSL</span><span class="tag">jOOQ</span><span class="tag">Panache</span><span class="tag">OAuth2 / JWT</span><span class="tag">SOAP (JAX-WS)</span><span class="tag">Diagnostic JVM (profiling, GC, concurrence)</span>
+          <span class="tag">Java</span><span class="tag">Quarkus</span><span class="tag">Spring Boot</span><span class="tag">Spring</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">REST</span><span class="tag">JPA/Hibernate</span><span class="tag">Spring Data</span><span class="tag">QueryDSL</span><span class="tag">jOOQ</span><span class="tag">Panache</span><span class="tag">SOAP (JAX-WS)</span><span class="tag">Diagnostic JVM (profiling, GC, concurrence)</span>
         </div>
       </div>
       
@@ -91,6 +91,20 @@ et cloud-native.</p>
       </div>
       
       <div class="skill-group">
+        <h3>Sécurité</h3>
+        <div class="tags">
+          <span class="tag">OAuth2 / OIDC</span><span class="tag">JWT</span><span class="tag">Keycloak</span><span class="tag">Azure AD</span><span class="tag">OWASP</span><span class="tag">PKI / TLS</span>
+        </div>
+      </div>
+      
+      <div class="skill-group">
+        <h3>IA générative</h3>
+        <div class="tags">
+          <span class="tag">LLM</span><span class="tag">GitHub Copilot</span><span class="tag">JetBrains AI Assistant</span><span class="tag">GitLab Duo</span><span class="tag">ChatGPT</span>
+        </div>
+      </div>
+      
+      <div class="skill-group">
         <h3>Monitoring & Observabilité</h3>
         <div class="tags">
           <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">ELK</span><span class="tag">Micrometer</span>
@@ -107,7 +121,7 @@ et cloud-native.</p>
       <div class="skill-group">
         <h3>Méthodologies</h3>
         <div class="tags">
-          <span class="tag">Agile (SCRUM)</span><span class="tag">TDD</span><span class="tag">Code review</span>
+          <span class="tag">Agile (Scrum, SAFe)</span><span class="tag">Jira / Confluence</span><span class="tag">TDD</span><span class="tag">Code review</span>
         </div>
       </div>
       
@@ -121,13 +135,27 @@ et cloud-native.</p>
     
     <article class="entry">
       <div class="entry-header">
+        <h3>Architecte solution – Référentiel Client Unique <span class="badge">Freelance</span></h3>
+        <span class="date">2024-10 – 2025-03</span>
+      </div>
+      <p class="company">BNP Paribas Personal Finance (Cetelem) · Nantes</p>
+      
+      <ul>
+        <li>Cadrage de la refonte des référentiels clients d'un grand acteur du crédit à la consommation en un Référentiel Client Unique (RCU) partagé par l'ensemble de la DSI, en lien avec les architectes et le centre d'excellence Architecture</li><li>Analyse de l'existant (référentiels multiples, synchronisations différées) et des retours d'expérience d'autres entités du groupe</li><li>Définition de la cible : golden record centré personne (identité unique, contrats, moyens de contact contextualisés), vision 360 alimentée en temps réel, gestion des comptes utilisateur et des consentements RGPD</li><li>Architecture CQRS et hexagonale pilotée par les événements, alignée sur les standards techniques du groupe</li><li>Trajectoire de migration progressive (double run, puis décommissionnement de l'existant), présentée en comité pour la décision d'investissement</li>
+      </ul>
+      
+      <p class="stack">Java, Spring Boot, CQRS, Architecture hexagonale, Event-driven, API Management, RGPD</p>
+    </article>
+    
+    <article class="entry">
+      <div class="entry-header">
         <h3>Architecte logiciel <span class="badge">Freelance</span></h3>
         <span class="date">2022-01 – 2024-01</span>
       </div>
       <p class="company">Maisons Du Monde · Nantes</p>
       
       <ul>
-        <li>Conception et mise en œuvre du programme de fidélité omnicanal (web et magasin) en quelques mois : intégration des données data, web et caisses, calcul des offres selon le statut, APIs synchrones et asynchrones</li><li>Architecte de l'équipe Care/Marketing, responsable du référentiel clients omnicanal : centralisation des données, diffusion par API aux partenaires internes/externes, intégration Captain Wallet (carte de fidélité dématérialisée)</li><li>Cadrage de chaque problématique métier ou défaut de conception, avec des solutions efficientes adaptées à la capacité de l'équipe et aux standards de la DSI</li><li>Deux jours par semaine au sein de l'équipe des architectes Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification</li><li>Usine logicielle : outillage de build pour la migration de Rancher interne vers GKE</li>
+        <li>Conception et mise en œuvre du programme de fidélité omnicanal (web et magasin) en quelques mois : intégration des données data, web et caisses, calcul des offres selon le statut, APIs synchrones et asynchrones</li><li>Architecte de l'équipe Care/Marketing, responsable du Référentiel Client Unique omnicanal : centralisation des données, exposition par API et diffusion des modifications aux partenaires internes (Microsoft Dynamics, Magento, caisses) et externes (Selligent, Captain Wallet)</li><li>Étude des Customer Data Platforms (CDP) pour en reprendre les bonnes pratiques (dédoublonnage, resynchronisation)</li><li>Cadrage de chaque problématique métier ou défaut de conception, avec des solutions efficientes adaptées à la capacité de l'équipe et aux standards de la DSI</li><li>Deux jours par semaine au sein de l'équipe des architectes Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification</li><li>Usine logicielle : outillage de build pour la migration de Rancher interne vers GKE</li>
       </ul>
       
       <p class="stack">Java, Spring Boot, PostgreSQL, Google Cloud, Pub/Sub, Docker, Kubernetes, Rancher, GKE, Helm</p>
@@ -355,7 +383,7 @@ et cloud-native.</p>
   
 
   <footer>
-    <p>Généré depuis <a href="https://github.com/glandais/glandais.github.io">cv-as-code</a> · Dernière mise à jour : 2025-04</p>
+    <p>Généré depuis <a href="https://github.com/glandais/glandais.github.io">cv-as-code</a> · Dernière mise à jour : 2026-09</p>
   </footer>
 </div>
 </body>
