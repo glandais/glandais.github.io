@@ -63,6 +63,9 @@ h3 { font-size: 1rem; }
 }
 ul { margin: 0.25rem 0 0.5rem 1.5rem; }
 li { margin-bottom: 0.15rem; font-size: 0.95rem; }
+.early { margin-bottom: 0.6rem; }
+.early p { font-size: 0.95rem; }
+.early-title { font-weight: normal; color: var(--muted); }
 .stack { font-size: 0.85rem; color: var(--muted); font-style: italic; }
 
 footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }

@@ -15,6 +15,13 @@ def test_extract_resume_keywords():
     assert "docker" in kws
 
 
+def test_extract_resume_keywords_includes_early_career():
+    data = {"early_career": [{"period": "2007 – 2008", "company": "X", "summary": "s", "stack": "Tapestry, EJB3"}]}
+    kws = extract_resume_keywords(data)
+    assert "tapestry" in kws
+    assert "ejb3" in kws
+
+
 def test_compute_score_full_match():
     resume_kws = {"java", "python", "docker"}
     job_text = "We need Java and Python and Docker experience"

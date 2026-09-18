@@ -36,6 +36,11 @@ def extract_resume_keywords(data: dict) -> set[str]:
             for part in exp["stack"].split(","):
                 kws.add(part.strip().lower())
 
+    for item in data.get("early_career", []):
+        if item.get("stack"):
+            for part in item["stack"].split(","):
+                kws.add(part.strip().lower())
+
     for proj in data.get("projects", []):
         for kw in proj.get("keywords", []):
             kws.add(kw.lower())

@@ -153,6 +153,23 @@ def generate_docx(data: dict) -> Path:
                 _set_font(run, size=Pt(10))
                 p.space_after = Pt(6)
 
+    # Early career (condensed, one paragraph per position)
+    if data.get("early_career"):
+        _add_heading_text(doc, "Début de carrière")
+        for item in data["early_career"]:
+            p = doc.add_paragraph()
+            head = f"{item['period']} — {item['company']}"
+            if item.get("title"):
+                head += f", {item['title']}"
+            run = p.add_run(f"{head} : ")
+            _set_font(run, bold=True)
+            run = p.add_run(item["summary"])
+            _set_font(run)
+            if item.get("stack"):
+                run = p.add_run(f" ({item['stack']})")
+                _set_font(run, size=Pt(10))
+            p.space_after = Pt(2)
+
     # Education
     if data.get("education"):
         _add_heading_text(doc, "Formation")

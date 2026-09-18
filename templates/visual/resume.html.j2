@@ -68,6 +68,22 @@
   </section>
   {% endif %}
 
+  {% if data.early_career %}
+  <section>
+    <h2>Début de carrière</h2>
+    {% for item in data.early_career %}
+    <article class="entry early">
+      <div class="entry-header">
+        <h3>{{ item.company }}{% if item.title %} <span class="early-title">· {{ item.title }}</span>{% endif %}</h3>
+        <span class="date">{{ item.period }}</span>
+      </div>
+      <p>{{ item.summary }}</p>
+      {% if item.stack %}<p class="stack">{{ item.stack }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
   {% if data.education %}
   <section>
     <h2>Formation</h2>

@@ -55,3 +55,13 @@ def test_docx_has_no_headers_footers(tmp_path, monkeypatch):
         footer_text = "".join(p.text for p in section.footer.paragraphs)
         assert header_text.strip() == ""
         assert footer_text.strip() == ""
+
+
+def test_docx_contains_early_career(tmp_path, monkeypatch):
+    import scripts.generate_docx as mod
+    monkeypatch.setattr(mod, "DIST_DIR", tmp_path)
+    data = load_resume("fr")
+    out = generate_docx(data)
+    text = "\n".join(p.text for p in Document(str(out)).paragraphs)
+    assert "Début de carrière" in text
+    assert "Code Lutin" in text

@@ -5,7 +5,7 @@ meta:
 
 basics:
   name: "Gabriel Landais"
-  label: "Architecte logiciels / Freelance"
+  label: "Architecte logiciel / Freelance"
   email: "gabriel.landais@gmail.com"
   phone: "06 09 34 55 33"
   location:
@@ -36,6 +36,8 @@ skills:
       - "KISS"
       - "DRY"
       - "Domain-Driven Design"
+      - "Model Driven Architecture (UML, Acceleo)"
+      - "OpenAPI"
 
   - category: "Backend"
     keywords:
@@ -47,13 +49,19 @@ skills:
       - "Flask"
       - "REST"
       - "JPA/Hibernate"
+      - "Spring Data"
+      - "QueryDSL"
+      - "jOOQ"
       - "Panache"
       - "OAuth2 / JWT"
+      - "SOAP (JAX-WS)"
+      - "Diagnostic JVM (profiling, GC, concurrence)"
 
   - category: "Frontend"
     keywords:
       - "Vue 3"
       - "React"
+      - "Angular"
       - "TypeScript"
       - "JavaScript"
       - "HTML5"
@@ -94,6 +102,8 @@ skills:
       - "GitHub Actions"
       - "Jenkins"
       - "Maven"
+      - "Nexus"
+      - "Traefik / Nginx"
 
   - category: "Monitoring & Observabilité"
     keywords:
@@ -110,6 +120,10 @@ skills:
       - "MapLibre"
       - "QGIS"
       - "OpenLayers"
+      - "GeoPackage"
+      - "GeoTools"
+      - "GDAL"
+      - "ArcGIS"
 
   - category: "Méthodologies"
     keywords:
@@ -118,18 +132,19 @@ skills:
       - "Code review"
 
 experience:
-  - title: "Architecte logiciels"
+  - title: "Architecte logiciel"
     company: "Maisons Du Monde"
     freelance: true
     startDate: "2022-01"
     endDate: "2024-01"
     location: "Nantes"
     highlights:
-      - "Conception et mise en œuvre du programme de fidélité omnicanal (web et magasin) dans un délai très court, intégrant données data, web et caisses"
-      - "Responsable du référentiel clients omnicanal : centralisation des données, diffusion par API aux partenaires internes/externes, intégration Captain Wallet pour la carte de fidélité dématérialisée"
-      - "Contribution à la plateforme logicielle Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification"
-      - "Participation à l'usine logicielle et à la migration Rancher interne → GKE"
-    stack: "Java, Spring Boot, PostgreSQL, Google Cloud, PubSub, Docker, Kubernetes, Rancher, GKE, Helm"
+      - "Conception et mise en œuvre du programme de fidélité omnicanal (web et magasin) en quelques mois : intégration des données data, web et caisses, calcul des offres selon le statut, APIs synchrones et asynchrones"
+      - "Architecte de l'équipe Care/Marketing, responsable du référentiel clients omnicanal : centralisation des données, diffusion par API aux partenaires internes/externes, intégration Captain Wallet (carte de fidélité dématérialisée)"
+      - "Cadrage de chaque problématique métier ou défaut de conception, avec des solutions efficientes adaptées à la capacité de l'équipe et aux standards de la DSI"
+      - "Deux jours par semaine au sein de l'équipe des architectes Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification"
+      - "Usine logicielle : outillage de build pour la migration de Rancher interne vers GKE"
+    stack: "Java, Spring Boot, PostgreSQL, Google Cloud, Pub/Sub, Docker, Kubernetes, Rancher, GKE, Helm"
     keywords_ats:
       - "Architecte logiciel"
       - "Spring Boot"
@@ -139,15 +154,15 @@ experience:
       - "Omnicanal"
       - "Programme de fidélité"
 
-  - title: "Architecte logiciels"
+  - title: "Architecte logiciel"
     company: "Baya"
     freelance: true
     startDate: "2021-01"
     endDate: "2022-01"
     location: "Nantes"
     highlights:
-      - "Modernisation du SI : initialisation d'un back-end Java/Quarkus pour un portail client simplifiant l'onboarding"
-      - "Utilisation des services managés Azure : authentification, base de données, déploiement container, secrets"
+      - "Modernisation du SI : initialisation du back-end Java/Quarkus d'un portail client simplifiant l'onboarding et l'accès aux services"
+      - "Utilisation des services managés Azure : authentification, base de données, déploiement de containers, gestion des secrets, infrastructure Terraform"
     stack: "Java, Quarkus, PostgreSQL, Docker, Terraform, Azure"
     keywords_ats:
       - "Quarkus"
@@ -155,17 +170,18 @@ experience:
       - "Terraform"
       - "API REST"
 
-  - title: "Architecte logiciels"
+  - title: "Architecte logiciel"
     company: "Sparklane"
-    startDate: "2020-01"
+    startDate: "2020-03"
     endDate: "2021-01"
     location: "Nantes"
     highlights:
-      - "Migration d'une livraison de données mensuelle vers un pipeline de streaming en faisant collaborer trois équipes autonomes"
-      - "Industrialisation des développements data : pipelines Jenkins, images Docker déployées avec Terraform sur Rancher 2"
-      - "Développement d'une solution de géocodage d'adresses et de détection de signaux d'affaires en flux (changement de poste, brevets)"
-      - "Accompagnement des développeurs dans la migration vers le streaming via des articles techniques détaillés"
-    stack: "Java, Quarkus, MongoDB, Kafka, Docker, Kubernetes, Rancher 2, Terraform, Prometheus, Grafana, ELK"
+      - "Pilotage de la bascule d'une livraison de données mensuelle vers un pipeline de streaming, en faisant coopérer trois équipes autonomes (R&D, data, produit) d'un produit SaaS B2B"
+      - "Industrialisation des développements data de la source à la production : découpage en dépôts isolant la valeur métier, pipelines Jenkins, images Docker déployées avec Terraform sur Rancher 2"
+      - "Développement d'outillage mutualisé facilitant l'adoption de l'architecture préconisée"
+      - "Premiers composants d'enrichissement en flux : géocodage d'adresses (après étude des données ouvertes) et signaux d'affaires (changement de poste, brevets) notifiés aux commerciaux"
+      - "Accompagnement des développeurs vers le streaming par des articles techniques détaillés"
+    stack: "Java, Quarkus, MongoDB, Kafka, Docker, Kubernetes, Rancher 2, Terraform, Jenkins, Prometheus, Grafana, ELK"
     keywords_ats:
       - "Kafka"
       - "Streaming"
@@ -179,11 +195,13 @@ experience:
     endDate: "2020-02"
     location: "Nantes"
     highlights:
-      - "Reprise en main et rationalisation du produit Vecko (analyse de la voix du client) pour cible cloud/SaaS multi-tenant"
-      - "Adoption du paradigme reactive (Spring Boot 2, Cassandra, Kafka, Elasticsearch) pour le traitement de flux multi-clients"
-      - "Mise en place de l'architecture micro-UI et déploiement sur GKE avec nombreux clients en production"
-      - "Responsable de l'architecture, de la production, de l'intégration des données clients, de la qualité et du reporting CTO"
-    stack: "Java, Spring Boot, Cassandra, Kafka, Elasticsearch, Kibana, React, Docker, Kubernetes, Helm, Prometheus, Grafana"
+      - "Reprise en main du produit Vecko (analyse de la voix du client) après une longue période sans responsable technique, et rationalisation pour une cible SaaS multi-tenant (images Docker stateless)"
+      - "Adoption du paradigme reactive (Spring Boot 2, Cassandra, Kafka, clients HTTP asynchrones) pour traiter des flux avec une configuration propre à chaque client"
+      - "Observabilité : métriques métier (Micrometer), tracing distribué (Brave), dashboards et alerting Prometheus/Grafana, charts Helm"
+      - "Architecture micro-UI (React) remplaçant l'adaptation de Kibana, pour une UI homogène laissant la liberté des choix techniques"
+      - "Mise en production sur GKE avec rapidement de nombreux clients ; responsable de l'architecture, du run, de l'intégration des données clients (API, fichiers) et de la qualité"
+      - "Traduction des epics fonctionnelles en backlog technique priorisé (sprints de 2 semaines), outils de configuration pour les linguistes et le product manager, reporting bimensuel au CTO"
+    stack: "Java, Spring Boot, Cassandra, Kafka, Elasticsearch, Kibana, React, Docker, Kubernetes, GKE, Helm, Prometheus, Grafana, Micrometer"
     keywords_ats:
       - "Technical Manager"
       - "Spring Boot"
@@ -192,25 +210,29 @@ experience:
       - "SaaS"
       - "Kafka"
       - "GKE"
+      - "Observabilité"
 
-  - title: "Architecte solution"
+  - title: "Responsable technique / Architecte solution"
     company: "Capgemini"
     startDate: "2014-06"
     endDate: "2017-08"
     location: "Nantes"
     highlights:
-      - "Projet LivingPackets : architecture microservices sur Google Cloud (AppEngine, Datastore), génération de clients mobiles depuis OpenAPI, encadrement de 5 développeurs"
-      - "Projet ETCS (SNCF Réseau) : développement from scratch d'un plugin QGIS Python/PyQt pour la saisie de schémas de voie ferroviaire"
-      - "Projet Geocatalogue (BRGM) : migration vers Solr, excédent de 30k€ sur budget, ~100 jours/homme"
-      - "Projet Verdi (SIG) : responsable technique d'une équipe de 12 développeurs, remplacement de technologies ESRI propriétaires par du code spécifique"
-    stack: "Java, Spring, Python, PyQT, SIG, ESRI, Oracle, GCP, Solr, QueryDSL, PostgreSQL, PostGIS"
+      - "LivingPackets : architecture microservices sur Google Cloud (App Engine, Datastore, Dataflow, Pub/Sub), contrats OpenAPI générant les clients mobiles, accompagnement de 5 développeurs, back-office Angular"
+      - "ETCS (SNCF Réseau) : cadre de développement d'un plugin QGIS Python/PyQt posé en 2 semaines, puis réécriture iso-fonctionnelle d'une application complexe en 2 mois avec 2 développeurs"
+      - "Geocatalogue (BRGM) : migration d'Exalead vers Solr, conception et encadrement de 2 développeurs ; forfait livré avec une marge de 30 k€ au-dessus du budget (~100 j/h)"
+      - "Verdi (SIG grande envergure) : responsable technique jusqu'à 12 développeurs (socle technique, revues de code, qualité Sonar) ; remplacement de briques ESRI propriétaires par du code spécifique, rendant le projet éligible au CIR"
+      - "Verdi : ORM géographique sur QueryDSL, mode hors ligne GeoPackage avec synchronisation vers Oracle, client Swing MVP/Spring"
+    stack: "Java, Spring, QueryDSL, Oracle, PostgreSQL, PostGIS, GeoPackage, Python, PyQt, QGIS, ESRI, Solr, Google Cloud, Angular"
     keywords_ats:
       - "Architecte solution"
+      - "Responsable technique"
       - "ESN"
       - "Encadrement technique"
       - "SIG"
       - "Google Cloud"
       - "Microservices"
+      - "Forfait"
 
   - title: "Ingénieur d'études"
     company: "Kosmos"
@@ -218,70 +240,63 @@ experience:
     endDate: "2014-01"
     location: "Nantes"
     highlights:
-      - "Intégration d'un webmail dans la messagerie interne du produit ENT, déployé pour l'ensemble d'une académie"
-      - "POC moteur de recherche full-text (Solr vs Elasticsearch) sur le CMS maison, avec API intégrable dans l'existant"
+      - "Intégration en délai court d'un webmail dans la messagerie de l'ENT (unité de 11 personnes), déployée pour tous les élèves et personnels d'une académie : conception, développement, recette"
+      - "Étude comparative Solr / Elasticsearch et POC d'API de recherche full-text intégrable au CMS maison, validé sur un projet client"
     stack: "Java, Spring, JSP, MySQL, Solr, Elasticsearch, JIRA"
     keywords_ats: []
 
   - title: "Ingénieur expert"
     company: "IHE Services"
-    startDate: "2010-01"
+    startDate: "2010-04"
     endDate: "2013-01"
     location: "Rennes"
     highlights:
-      - "Maintenance et optimisation du projet Gazelle (gestion de Connectathons d'interopérabilité santé) : modularisation Maven, optimisation mémoire, cache second niveau"
-      - "Développement d'un proxy réseau d'interception de messages (Netty)"
-      - "Développement d'un outil de génération et validation de certificats PKI/TLS (BouncyCastle, TDD)"
-      - "Administration système et support international (USA, Japon)"
-    stack: "Java, Seam, JBoss, Maven, Jenkins, Hibernate, Netty, BouncyCastle, PostgreSQL"
+      - "Gazelle, outil de gestion des Connectathons d'interopérabilité santé (plusieurs centaines d'éditeurs) : modularisation Maven, optimisation des performances (requêtage, mémoire, cache second niveau), réécriture des parties les plus instables"
+      - "Développement d'un proxy d'interception de messages (Netty) et d'un outil de génération et validation de certificats PKI/TLS (BouncyCastle, approche TDD)"
+      - "Architecture logicielle, formation et revues de code dans une équipe de 6 personnes ; administration système et support international (USA, Japon)"
+    stack: "Java, JBoss Seam, JSF, Hibernate, Maven, Jenkins, Netty, BouncyCastle, PostgreSQL"
     keywords_ats: []
 
-  - title: "Ingénieur d'études"
+early_career:
+  - period: "2009 – 2010"
     company: "Mediasofts"
-    startDate: "2009-01"
-    endDate: "2010-01"
-    location: "Nantes"
-    highlights:
-      - "Réécriture du module escalier dans Metalcad : modélisation 3D, rendu OpenGL, calcul de surfaces (intersection, projection, extrusion), génération de plans AutoCAD"
-    stack: "Delphi, OpenGL, AutoCAD"
-    keywords_ats: []
-
-  - title: "Recherche et développement"
+    title: "Ingénieur d'études"
+    summary: "Réécriture du module escalier du logiciel de CAO Metalcad : modélisation et calculs 3D, rendu OpenGL, génération de plans AutoCAD"
+    stack: "Delphi, OpenGL"
+  - period: "2009"
+    company: "Sneda"
+    title: "Recherche et développement"
+    summary: "Profiler Java, driver ODA pour BIRT, intégration continue d'applications Eclipse RCP/OSGi"
+    stack: "Java, Eclipse RCP, OSGi, Maven, Tycho, Nexus"
+  - period: "2008 – 2009"
     company: "BlueXML"
-    startDate: "2007-01"
-    endDate: "2009-01"
-    location: "Nantes"
-    highlights:
-      - "Développement d'un outil de modélisation et génération de code pour Alfresco"
-      - "Génération de formulaires XForms depuis modèle (plugin Maven)"
-    stack: "Java, Maven, Eclipse, Alfresco, XForms, Acceleo"
-    keywords_ats: []
-
-  - title: "Ingénieur développement"
+    title: "Recherche et développement"
+    summary: "Modeleur Eclipse (Topcased/EMF) et génération de code pour Alfresco ; génération de formulaires XForms depuis un métamodèle (plugin Maven)"
+    stack: "Java, EMF, Acceleo, Alfresco, XForms, Maven"
+  - period: "2007 – 2008"
+    company: "Code Lutin"
+    title: "Ingénieur développement"
+    summary: "Applications web JEE5"
+    stack: "Java, JBoss, EJB3, JPA, JAAS, Tapestry, Axis, Lucene"
+  - period: "2006 – 2007"
     company: "Capgemini"
-    startDate: "2006-01"
-    endDate: "2007-01"
-    location: "Nantes"
-    highlights:
-      - "Projet Paris à la Carte : refonte du site cartographique (OpenLayers, ArcIMS, DWR, JSP)"
-      - "Projet GTSM (gestion de stock militaire) : génération MDA Acceleo, JSP/Struts, Hibernate"
-      - "Projet Caisse d'Épargne : front office assurance vie, génération MDA MIA, ASP.NET"
-    stack: "Java, Hibernate, Struts, JSP, ASP.NET, SIG, OpenLayers"
-    keywords_ats: []
-
-  - title: "Concepteur développeur"
+    title: "Ingénieur développement"
+    summary: "Génération MDA depuis UML (gestion de stock de munitions pour l'armée de Terre, souscription d'assurance vie pour la Caisse d'Épargne) ; SIG pour la Ville de Paris (refonte de Paris à la Carte, support ArcGIS)"
+    stack: "Java, Struts, Hibernate, Acceleo, ASP.NET, OpenLayers, ArcGIS"
+  - period: "2004 – 2006"
     company: "Mediasofts"
-    startDate: "2004-01"
-    endDate: "2006-01"
-    location: "Nantes"
-    highlights:
-      - "Module escalier Metalcad, répartition automatique de végétaux, optimisation de découpes"
-    stack: "Delphi, OpenGL, AutoCAD, calcul 3D"
-    keywords_ats: []
+    title: "Concepteur développeur"
+    summary: "Conception du module escalier de Metalcad, répartition automatique de végétaux, optimisation de découpes"
+    stack: "Delphi, OpenGL"
+  - period: "2000 – 2004"
+    company: "Stages et premiers projets"
+    title: ""
+    summary: "Logiciel de télésauvegarde neobe Backup (Neobe) ; saisie GPS nomade (Cadden) ; atelier statistique de benchmarking (Ordimega) ; migration vers MX4J/JMX open source (Corizon, Londres) ; plus de 10 projets en junior-entreprise dont plusieurs comme chef de projet"
+    stack: "Delphi, Java, C++, PHP"
 
 education:
   - institution: "ENSG-Géomatique (Université de Marne-la-Vallée)"
-    area: "Sciences de l'information géographique"
+    area: "Sciences de l'information géographique (mention Bien)"
     studyType: "DEA / Master 2 recherche"
     startDate: "2003-09"
     endDate: "2004-08"
@@ -311,7 +326,7 @@ languages:
   - language: "Français"
     fluency: "Langue maternelle"
   - language: "Anglais"
-    fluency: "Professionnel (support international USA/Japon chez IHE Services)"
+    fluency: "Professionnel — IELTS 6,5/9, support international (USA, Japon)"
 
 certifications: []
 # TODO: ajouter certifications AWS/GCP si existantes
