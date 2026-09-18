@@ -24,3 +24,8 @@ def get_filename_base(data: dict) -> str:
     parts = name.split()
     lang = data["meta"]["lang"].upper()
     return f"{'_'.join(parts)}_CV_{lang}"
+
+
+def normalize_text(text: str) -> str:
+    """Collapse line breaks and repeated spaces (e.g. YAML literal blocks)."""
+    return " ".join(text.split())

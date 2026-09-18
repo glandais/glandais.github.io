@@ -44,3 +44,29 @@ def test_compute_score_empty_job():
     resume_kws = {"java"}
     result = compute_score(resume_kws, "")
     assert result["score"] == 0.0
+
+
+def test_keyword_matching_uses_word_boundaries():
+    # "go" must not match inside "catégorie", "vue" not inside "revue"
+    result = compute_score(set(), "Go et Vue", full_text="une catégorie en revue")
+    assert "go" in result["missing"]
+    assert "vue" in result["missing"]
+
+
+def test_composite_skill_labels_are_split():
+    data = {"skills": [{"category": "Méthodes", "keywords": ["Agile (Scrum, SAFe)", "OAuth2 / OIDC"]}]}
+    kws = extract_resume_keywords(data)
+    assert {"scrum", "safe", "oauth2", "oidc"} <= kws
+
+
+def test_full_text_counts_highlights():
+    from scripts.ats_score import resume_text
+    data = {"experience": [{"title": "Architecte", "company": "X", "highlights": ["Mise en place de Kubernetes"]}]}
+    result = compute_score(set(), "Kubernetes requis", full_text=resume_text(data))
+    assert "kubernetes" in result["found"]
+
+
+def test_common_capitalized_words_are_ignored():
+    result = compute_score(set(), "Missions : Concevoir des API. Profil : Java")
+    assert "missions" not in result["job_keywords"]
+    assert "profil" not in result["job_keywords"]

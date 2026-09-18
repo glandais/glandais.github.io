@@ -2,46 +2,48 @@
 <html lang="{{ data.meta.lang }}">
 <head>
 <meta charset="utf-8">
-<title>{{ data.basics.name }} — CV</title>
+<title>{{ data.basics.name }} – {{ data.basics.label }}</title>
+<meta name="author" content="{{ data.basics.name }}">
+<meta name="description" content="Curriculum vitae – {{ data.basics.label }}">
+<meta name="keywords" content="{% for group in data.skills %}{{ group.keywords | join(', ') }}{% if not loop.last %}, {% endif %}{% endfor %}">
 <style>
-  @page { size: A4; margin: 2cm; }
-  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.4; color: #222; }
+  @font-face { font-family: "Carlito"; src: url("fonts/Carlito-Regular.ttf"); font-weight: normal; }
+  @font-face { font-family: "Carlito"; src: url("fonts/Carlito-Bold.ttf"); font-weight: bold; }
+  @page { size: A4; margin: 1.5cm 1.8cm; }
+  body { font-family: Carlito, Calibri, Arial, sans-serif; font-size: 10.5pt; line-height: 1.3; color: #222; }
+  a { color: #1f4e9a; text-decoration: none; }
   h1 { font-size: 14pt; text-align: center; margin: 0 0 2pt 0; }
   .label { text-align: center; font-size: 11pt; margin: 0 0 4pt 0; }
   .contact { text-align: center; font-size: 10pt; color: #444; margin-bottom: 12pt; }
-  h2 { font-size: 12pt; border-bottom: 1px solid #999; padding-bottom: 2pt; margin: 12pt 0 6pt 0; }
-  .job-title { font-weight: bold; margin: 6pt 0 0 0; }
-  .job-meta { font-size: 10pt; color: #555; margin: 0 0 4pt 0; }
-  ul { margin: 2pt 0 6pt 18pt; padding: 0; }
-  li { margin-bottom: 2pt; }
-  .stack { font-size: 10pt; color: #555; margin: 2pt 0 8pt 0; }
-  .early { margin: 0 0 4pt 0; }
+  h2 { font-size: 12pt; border-bottom: 1px solid #999; padding-bottom: 2pt; margin: 12pt 0 6pt 0; page-break-after: avoid; }
+  p { margin: 0 0 3pt 0; }
+  .job-title { font-weight: bold; margin: 6pt 0 0 0; page-break-after: avoid; }
+  .job-meta { font-size: 10pt; color: #555; margin: 0 0 3pt 0; page-break-after: avoid; }
+  ul { margin: 2pt 0 4pt 18pt; padding: 0; }
+  li { margin-bottom: 1pt; }
+  .stack { font-size: 10pt; color: #555; margin: 2pt 0 6pt 0; }
+  .early { margin: 0 0 3pt 0; }
   .early .stack { margin: 0; }
   .skill-cat { font-weight: bold; }
   .project-title { font-weight: bold; }
-  .project-kw { font-size: 10pt; color: #555; }
+  .project-kw { font-size: 10pt; color: #555; margin-bottom: 5pt; }
 </style>
 </head>
 <body>
   <h1>{{ data.basics.name }}</h1>
   <p class="label">{{ data.basics.label }}</p>
   <p class="contact">
-    {% set parts = [] %}
-    {% if data.basics.email %}{% set _ = parts.append(data.basics.email) %}{% endif %}
-    {% if data.basics.phone %}{% set _ = parts.append(data.basics.phone) %}{% endif %}
-    {% if data.basics.location and data.basics.location.city %}
-      {% set city = data.basics.location.city %}
-      {% if data.basics.location.postalCode %}{% set city = data.basics.location.postalCode ~ " " ~ city %}{% endif %}
-      {% set _ = parts.append(city) %}
-    {% endif %}
-    {% if data.basics.linkedin %}{% set _ = parts.append(data.basics.linkedin) %}{% endif %}
-    {% if data.basics.github %}{% set _ = parts.append(data.basics.github) %}{% endif %}
-    {{ parts | join(" | ") }}
+    {% set sep = joiner(" | ") %}
+    {% if data.basics.email %}{{ sep() }}<a href="mailto:{{ data.basics.email }}">{{ data.basics.email }}</a>{% endif %}
+    {% if data.basics.phone %}{{ sep() }}{{ data.basics.phone }}{% endif %}
+    {% if data.basics.location and data.basics.location.city %}{{ sep() }}{% if data.basics.location.postalCode %}{{ data.basics.location.postalCode }} {% endif %}{{ data.basics.location.city }}{% endif %}
+    {% if data.basics.linkedin %}{{ sep() }}<a href="https://{{ data.basics.linkedin }}">{{ data.basics.linkedin }}</a>{% endif %}
+    {% if data.basics.github %}{{ sep() }}<a href="https://{{ data.basics.github }}">{{ data.basics.github }}</a>{% endif %}
   </p>
 
   {% if data.basics.summary %}
   <h2>Profil</h2>
-  <p>{{ data.basics.summary | trim }}</p>
+  <p>{{ data.basics.summary | normalize }}</p>
   {% endif %}
 
   {% if data.skills %}
@@ -54,8 +56,8 @@
   {% if data.experience %}
   <h2>Expérience professionnelle</h2>
   {% for exp in data.experience %}
-  <p class="job-title">{{ exp.title }}{% if exp.freelance %} (Freelance){% endif %} — {{ exp.company }}</p>
-  <p class="job-meta">{{ exp.startDate }} – {{ exp.endDate or "Présent" }}{% if exp.location %} | {{ exp.location }}{% endif %}</p>
+  <p class="job-title">{{ exp.title }} — {{ exp.company }}</p>
+  <p class="job-meta">{{ exp.startDate }} – {{ exp.endDate or "Présent" }}{% if exp.location %} | {{ exp.location }}{% endif %}{% if exp.freelance %} | Freelance{% endif %}</p>
   {% if exp.highlights %}
   <ul>
     {% for h in exp.highlights %}<li>{{ h }}</li>{% endfor %}
@@ -72,27 +74,24 @@
   {% endfor %}
   {% endif %}
 
-  {% if data.education %}
-  <h2>Formation</h2>
-  {% for edu in data.education %}
-  <p class="job-title">{{ edu.studyType }} {{ edu.area }} — {{ edu.institution }}</p>
-  <p class="job-meta">{{ edu.startDate }} – {{ edu.endDate }}{% if edu.location %} | {{ edu.location }}{% endif %}</p>
+  {% if data.projects %}
+  <h2>Projets et open source</h2>
+  {% for proj in data.projects %}
+  <p><span class="project-title">{{ proj.name }}</span>{% if proj.url %} — <a href="{{ proj.url }}">{{ proj.url | replace("https://", "") }}</a>{% endif %} : {{ proj.description }}</p>
+  {% if proj.keywords %}<p class="project-kw">{{ proj.keywords | join(", ") }}</p>{% endif %}
   {% endfor %}
   {% endif %}
 
-  {% if data.projects %}
-  <h2>Projets personnels</h2>
-  {% for proj in data.projects %}
-  <p><span class="project-title">{{ proj.name }}</span>{% if proj.url %} ({{ proj.url }}){% endif %} — {{ proj.description }}</p>
-  {% if proj.keywords %}<p class="project-kw">{{ proj.keywords | join(", ") }}</p>{% endif %}
+  {% if data.education %}
+  <h2>Formation</h2>
+  {% for edu in data.education %}
+  <p><strong>{{ edu.studyType }} {{ edu.area }}</strong> — {{ edu.institution }} ({{ edu.startDate[:4] }} – {{ edu.endDate[:4] }})</p>
   {% endfor %}
   {% endif %}
 
   {% if data.languages %}
   <h2>Langues</h2>
-  {% for lang in data.languages %}
-  <p>{{ lang.language }} — {{ lang.fluency }}</p>
-  {% endfor %}
+  <p>{% for lang in data.languages %}{{ lang.language }} : {{ lang.fluency }}{% if not loop.last %} ; {% endif %}{% endfor %}</p>
   {% endif %}
 
   {% if data.interests %}

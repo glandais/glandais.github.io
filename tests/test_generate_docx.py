@@ -65,3 +65,25 @@ def test_docx_contains_early_career(tmp_path, monkeypatch):
     text = "\n".join(p.text for p in Document(str(out)).paragraphs)
     assert "Début de carrière" in text
     assert "Code Lutin" in text
+
+
+def test_docx_is_a4_french_with_metadata(tmp_path, monkeypatch):
+    import scripts.generate_docx as mod
+    monkeypatch.setattr(mod, "DIST_DIR", tmp_path)
+    data = load_resume("fr")
+    doc = Document(str(generate_docx(data)))
+    section = doc.sections[0]
+    assert round(section.page_width.cm, 1) == 21.0
+    assert round(section.page_height.cm, 1) == 29.7
+    assert 'w:val="fr-FR"' in doc.styles.element.xml
+    assert doc.core_properties.author == data["basics"]["name"]
+    assert doc.core_properties.title
+
+
+def test_docx_has_clickable_links_and_no_forced_breaks(tmp_path, monkeypatch):
+    import scripts.generate_docx as mod
+    monkeypatch.setattr(mod, "DIST_DIR", tmp_path)
+    doc = Document(str(generate_docx(load_resume("fr"))))
+    xml = doc.element.xml
+    assert "<w:hyperlink" in xml
+    assert "<w:br/>" not in xml

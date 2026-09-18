@@ -1,157 +1,47 @@
 meta:
-  version: "1.0"
+  version: "1.1"
   updated: "2026-09"
   lang: "fr"
 
 basics:
   name: "Gabriel Landais"
-  label: "Architecte logiciel / Freelance"
+  label: "Architecte logiciel & Développeur expert Java / Cloud – Freelance"
   email: "gabriel.landais@gmail.com"
   phone: "06 09 34 55 33"
   location:
-    address: "29 rue Docteur Jean Rostand"
     city: "Saint-Herblain"
     postalCode: "44800"
     region: "Pays de la Loire"
     country: "France"
   linkedin: "linkedin.com/in/gabriel-landais"
   github: "github.com/glandais"
-  website: "https://glandais.github.io/cv"  # URL GitHub Pages — à ajuster selon le nom du repo
-  summary: |
-    Architecte logiciel freelance, diplômé de l'IMT Atlantique (2003),
-    avec plus de 20 ans d'expérience dans la conception et le développement de solutions
-    Java/Cloud. Force de proposition, je co-construis des architectures performantes et
-    modernes au service de besoins métiers complexes, avec une solide expertise technique,
-    de fortes capacités d'analyse et un goût prononcé pour les environnements distribués
-    et cloud-native. Pratique avancée du développement agentique (Claude Code) pour
-    accélérer la conception, le prototypage et la livraison.
+  website: "https://glandais.github.io/"
+  summary: >-
+    Architecte logiciel et développeur expert Java (Spring Boot, Quarkus), ingénieur IMT Atlantique,
+    22 ans d'expérience. Je conçois et livre des systèmes distribués event-driven (Kafka, CQRS,
+    architecture hexagonale, DDD) sur Kubernetes, du cadrage d'architecture jusqu'à la production,
+    la performance et le run. Expertise en banque et paiement (authentification forte, DSP2,
+    cryptographie sur HSM, PCI-DSS) et en référentiels clients (RCU/MDM, vision 360°, RGPD).
+    Pratique avancée du développement agentique avec Claude Code ; auteur de bibliothèques
+    open source publiées sur Maven Central et npm.
 
 skills:
   - category: "Architecture"
-    keywords:
-      - "Architecture hexagonale"
-      - "Cloud native"
-      - "12-factor app"
-      - "Reactive"
-      - "Microservices"
-      - "CQRS"
-      - "Event-driven"
-      - "Domain-Driven Design"
-      - "SOLID"
-      - "Référentiels clients (MDM, golden record, vision 360)"
-      - "Model Driven Architecture (UML, Acceleo)"
-      - "OpenAPI"
-
-  - category: "Backend"
-    keywords:
-      - "Java"
-      - "Quarkus"
-      - "Spring Boot"
-      - "Spring"
-      - "Python"
-      - "Flask"
-      - "REST"
-      - "JPA/Hibernate"
-      - "Spring Data"
-      - "QueryDSL"
-      - "jOOQ"
-      - "Panache"
-      - "SOAP (JAX-WS)"
-      - "Diagnostic JVM (profiling, GC, concurrence)"
-
-  - category: "Frontend"
-    keywords:
-      - "Vue 3"
-      - "React"
-      - "Angular"
-      - "TypeScript"
-      - "JavaScript"
-      - "HTML5"
-      - "CSS3"
-
-  - category: "Bases de données SQL"
-    keywords:
-      - "PostgreSQL"
-      - "MySQL"
-      - "Oracle"
-      - "SQLite"
-      - "Flyway"
-      - "Liquibase"
-
-  - category: "Bases de données NoSQL"
-    keywords:
-      - "Cassandra"
-      - "MongoDB"
-      - "Elasticsearch"
-      - "Solr"
-
-  - category: "Messaging & Streaming"
-    keywords:
-      - "Kafka"
-      - "Pulsar"
-      - "Google Pub/Sub"
-
+    keywords: ["Microservices", "Event-driven", "CQRS", "Architecture hexagonale", "DDD", "API-first (OpenAPI)", "ADR", "Référentiels clients (MDM, golden record, vision 360°)"]
+  - category: "Java & backend"
+    keywords: ["Java 21/25", "Spring Boot 3/4", "Spring Security", "Quarkus 3", "JPA/Hibernate", "Kafka", "Performance JVM (profiling, GC, mémoire native)", "Python"]
+  - category: "Données"
+    keywords: ["PostgreSQL/PostGIS", "SQL Server", "Oracle", "MongoDB", "Cassandra", "Elasticsearch", "Liquibase"]
   - category: "Cloud & DevOps"
-    keywords:
-      - "Docker"
-      - "Kubernetes"
-      - "Helm"
-      - "GCP"
-      - "AWS"
-      - "Azure"
-      - "GKE"
-      - "Terraform"
-      - "GitHub Actions"
-      - "Jenkins"
-      - "Maven"
-      - "Nexus"
-      - "Traefik / Nginx"
-
+    keywords: ["Kubernetes", "Helm", "Docker", "Google Cloud (GCP, GKE)", "Azure", "Terraform", "CI/CD (GitLab CI, GitHub Actions, Jenkins)", "ArgoCD", "Prometheus/Grafana", "Gatling", "k6"]
   - category: "Sécurité"
-    keywords:
-      - "OAuth2 / OIDC"
-      - "JWT"
-      - "Keycloak"
-      - "Azure AD"
-      - "OWASP"
-      - "PKI / TLS"
-
+    keywords: ["OAuth2 / OIDC", "JWT/JWS", "Authentification forte (SCA, DSP2)", "Cryptographie et HSM (PKCS#11)", "PCI-DSS", "OWASP"]
   - category: "Développement assisté par IA"
-    keywords:
-      - "Claude Code (usage quotidien)"
-      - "Développement agentique piloté par spécification"
-      - "Sous-agents et workflows multi-agents"
-      - "Extension d'agents : skills, hooks, commandes, plugins"
-      - "Garde-fous qualité (tests, revue, CLAUDE.md)"
-      - "LLM"
-      - "GitHub Copilot"
-
-  - category: "Monitoring & Observabilité"
-    keywords:
-      - "Prometheus"
-      - "Grafana"
-      - "ELK"
-      - "Micrometer"
-
-  - category: "SIG / Géospatial"
-    keywords:
-      - "PostGIS"
-      - "Leaflet"
-      - "Mapbox"
-      - "MapLibre"
-      - "QGIS"
-      - "OpenLayers"
-      - "GeoPackage"
-      - "GeoTools"
-      - "GDAL"
-      - "ArcGIS"
-
-  - category: "Méthodologies"
-    keywords:
-      - "Agile (Scrum, SAFe)"
-      - "Jira / Confluence"
-      - "TDD"
-      - "Code review"
+    keywords: ["Claude Code (usage quotidien)", "Développement agentique piloté par spécification", "MCP", "Orchestration multi-agents", "Extension d'agents (skills, hooks, plugins)", "Revue de code par IA en CI"]
+  - category: "Frontend & SIG"
+    keywords: ["React", "TypeScript", "Angular", "Leaflet", "OpenLayers", "QGIS"]
+  - category: "Méthodes & secteurs"
+    keywords: ["Agile (Scrum, SAFe)", "TDD", "Revue de code", "Tests de performance", "Banque et paiement", "Crédit à la consommation", "Retail omnicanal", "SaaS B2B"]
 
 experience:
   - title: "Architecte / Développeur expert Java – Authentification forte et cryptographie"
@@ -159,13 +49,13 @@ experience:
     freelance: true
     startDate: "2025-02"
     highlights:
-      - "Squad authentification forte, SCA, DSP2 et cryptographie d'une néobanque de plusieurs millions de clients : conception, développement et mise en production de microservices Java critiques"
-      - "Conception et développement d'un service de cryptographie centralisé sur HSM (signature JWS, chiffrement AES-GCM, rotation de clés) pour les paiements instantanés européens (Wero) et les terminaux de paiement, en périmètre PCI-DSS ; responsable de la première mise en production ; implémentation d'AES-DUKPT (ANSI X9.24-3) validée avec l'éditeur du HSM"
-      - "Performance : débit du service de cryptographie multiplié par 32 à 41 (p95 de 0,8 s à 27 ms) ; campagnes Gatling jusqu'à 17 800 req/s ; diagnostic d'OOMKill et harmonisation du dimensionnement JVM sous Kubernetes, CPU par requête réduit de 38 à 50 %"
-      - "Authentification forte : validation sur appareil de confiance remplaçant l'OTP SMS (enrôlement, webhooks, circuit breaker partagé entre pods), parcours de consentement Open Banking DSP2 de bout en bout (API, BFF, React), migrations SQL Server sans interruption sur des tables de plusieurs dizaines de millions de lignes"
-      - "Socle et gouvernance : migration Spring Boot 4 de la bibliothèque socle, Problem Details (RFC 9457), règles ArchUnit de contrat d'API, null-safety NullAway ; POC de serveur d'autorisation OAuth 2.1 / OIDC (PKCE, PAR, DPoP), ADR et formation des développeurs"
-      - "Développement agentique au quotidien avec Claude Code, connecté aux outils de l'équipe par MCP (JIRA, GitLab, Kubernetes, Prometheus) avec orchestration multi-agents ; relecture automatique des merge requests par IA intégrée à la CI"
-    stack: "Java 21/25, Spring Boot 3/4, Spring Security, Kafka, SQL Server, HSM (PKCS#11), React, Kubernetes, Helm, ArgoCD, GitLab CI, Prometheus, Grafana, Gatling"
+      - "Squad authentification forte, DSP2 et cryptographie d'une néobanque de plusieurs millions de clients : conception, développement et mise en production de microservices Java critiques"
+      - "Création d'un service de cryptographie centralisé sur HSM (JWS, AES-GCM, rotation de clés, AES-DUKPT) pour les paiements instantanés européens (Wero) et les terminaux de paiement, en périmètre PCI-DSS ; responsable de la première mise en production"
+      - "Performance : débit du service de cryptographie multiplié par 32 à 41 (p95 de 0,8 s à 27 ms), tirs Gatling jusqu'à 17 800 req/s, dimensionnement JVM sous Kubernetes harmonisé, CPU par requête réduit de 38 à 50 %"
+      - "Authentification forte : validation sur appareil de confiance remplaçant l'OTP SMS, parcours de consentement Open Banking DSP2 de bout en bout (API, BFF, React), migrations SQL Server sans interruption sur des dizaines de millions de lignes"
+      - "Socle et gouvernance : migration Spring Boot 4 de la bibliothèque socle, règles ArchUnit de contrat d'API, null-safety NullAway ; POC de serveur d'autorisation OAuth2.1 / OIDC (PKCE, PAR, DPoP), ADR et formation des développeurs"
+      - "Développement agentique au quotidien avec Claude Code connecté aux outils de l'équipe par MCP (JIRA, GitLab, Kubernetes, Prometheus) ; relecture des merge requests par IA intégrée à la CI"
+    stack: "Java 21/25, Spring Boot 3/4, Spring Security, Kafka, SQL Server, HSM (PKCS#11), React, Kubernetes, ArgoCD, GitLab CI, Prometheus/Grafana, Gatling, k6"
     keywords_ats:
       - "Authentification forte"
       - "SCA"
@@ -188,104 +78,62 @@ experience:
     endDate: "2025-02"
     location: "Nantes"
     highlights:
-      - "Cadrage de la refonte des référentiels clients d'un grand acteur du crédit à la consommation en un Référentiel Client Unique (RCU) partagé par l'ensemble de la DSI, en lien avec les architectes et le centre d'excellence Architecture"
-      - "Analyse de l'existant (référentiels multiples, synchronisations différées) et des retours d'expérience d'autres entités du groupe"
-      - "Définition de la cible : golden record centré personne (identité unique, contrats, moyens de contact contextualisés), vision 360 alimentée en temps réel, gestion des comptes utilisateur et des consentements RGPD"
+      - "Cadrage d'un Référentiel Client Unique (RCU) pour l'ensemble de la DSI d'un grand acteur du crédit à la consommation, avec les architectes et le centre d'excellence Architecture : analyse de l'existant (référentiels multiples, synchronisations différées) et retours d'expérience d'autres entités du groupe"
+      - "Définition de la cible : golden record centré personne (identité unique, contrats, moyens de contact contextualisés), vision 360° alimentée en temps réel, comptes utilisateur et consentements RGPD"
       - "Architecture CQRS et hexagonale pilotée par les événements, alignée sur les standards techniques du groupe"
       - "Trajectoire de migration progressive (double run, puis décommissionnement de l'existant), présentée en comité pour la décision d'investissement"
-    stack: "Java, Spring Boot, CQRS, Architecture hexagonale, Event-driven, API Management, RGPD"
-    keywords_ats:
-      - "Architecte solution"
-      - "Référentiel client unique"
-      - "RCU"
-      - "MDM"
-      - "Golden record"
-      - "Vision 360"
-      - "CQRS"
-      - "RGPD"
-      - "Banque / Crédit"
+    stack: "Java, Spring Boot, CQRS, Event-driven, API Management"
+    keywords_ats: ["Architecte solution", "Référentiel client unique", "RCU", "MDM", "Golden record", "Vision 360", "CQRS", "RGPD", "Banque / Crédit"]
 
   - title: "Architecte logiciel"
-    company: "Maisons Du Monde"
+    company: "Maisons du Monde"
     freelance: true
-    startDate: "2022-01"
-    endDate: "2024-01"
+    startDate: "2022-08"
+    endDate: "2024-08"
     location: "Nantes"
     highlights:
-      - "Conception et mise en œuvre du programme de fidélité omnicanal (web et magasin) en quelques mois : intégration des données data, web et caisses, calcul des offres selon le statut, APIs synchrones et asynchrones"
-      - "Architecte de l'équipe Care/Marketing, responsable du Référentiel Client Unique omnicanal : centralisation des données, exposition par API et diffusion des modifications aux partenaires internes (Microsoft Dynamics, Magento, caisses) et externes (Selligent, Captain Wallet)"
-      - "Étude des Customer Data Platforms (CDP) pour en reprendre les bonnes pratiques (dédoublonnage, resynchronisation)"
-      - "Cadrage de chaque problématique métier ou défaut de conception, avec des solutions efficientes adaptées à la capacité de l'équipe et aux standards de la DSI"
-      - "Deux jours par semaine au sein de l'équipe des architectes Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification"
-      - "Usine logicielle : outillage de build pour la migration de Rancher interne vers GKE"
-    stack: "Java, Spring Boot, PostgreSQL, Google Cloud, Pub/Sub, Docker, Kubernetes, Rancher, GKE, Helm"
-    keywords_ats:
-      - "Architecte logiciel"
-      - "Spring Boot"
-      - "GCP"
-      - "Kubernetes"
-      - "API REST"
-      - "Omnicanal"
-      - "Programme de fidélité"
-      - "Référentiel client"
+      - "Programme de fidélité omnicanal (web et magasins) conçu et livré en quelques mois : intégration des données web, caisses et data, calcul des offres selon le statut, API synchrones et asynchrones"
+      - "Architecte du Référentiel Client Unique omnicanal : exposition par API et diffusion des modifications aux partenaires internes (Microsoft Dynamics, Magento, caisses) et externes (Selligent, Captain Wallet) ; étude des CDP (dédoublonnage, resynchronisation)"
+      - "Au sein de l'équipe des architectes Java de la DSI : fiabilisation des composants de messaging asynchrone et d'authentification"
+      - "Usine logicielle : outillage de build pour la migration de Rancher vers GKE"
+    stack: "Java 17, Spring Boot 2/3, PostgreSQL, GCP, Pub/Sub, Kubernetes, GKE, Helm"
+    keywords_ats: ["Architecte logiciel", "Omnicanal", "Programme de fidélité", "Référentiel client", "API REST"]
 
   - title: "Architecte logiciel"
     company: "Baya"
     freelance: true
-    startDate: "2021-01"
-    endDate: "2022-01"
+    startDate: "2021-11"
+    endDate: "2022-07"
     location: "Nantes"
     highlights:
-      - "Modernisation du SI : initialisation du back-end Java/Quarkus d'un portail client simplifiant l'onboarding et l'accès aux services"
-      - "Utilisation des services managés Azure : authentification, base de données, déploiement de containers, gestion des secrets, infrastructure Terraform"
-    stack: "Java, Quarkus, PostgreSQL, Docker, Terraform, Azure"
-    keywords_ats:
-      - "Quarkus"
-      - "Azure"
-      - "Terraform"
-      - "API REST"
+      - "Modernisation du SI : initialisation du back-end Java/Quarkus d'un portail client simplifiant l'onboarding, sur les services managés Azure (authentification, base de données, conteneurs, secrets) avec Terraform"
+    stack: "Java, Quarkus 2, PostgreSQL, Docker, Terraform, Azure"
+    keywords_ats: ["Quarkus", "Azure", "Terraform"]
 
   - title: "Architecte logiciel"
     company: "Sparklane"
-    startDate: "2020-03"
-    endDate: "2021-01"
+    startDate: "2020-05"
+    endDate: "2021-10"
     location: "Nantes"
     highlights:
-      - "Pilotage de la bascule d'une livraison de données mensuelle vers un pipeline de streaming, en faisant coopérer trois équipes autonomes (R&D, data, produit) d'un produit SaaS B2B"
-      - "Industrialisation des développements data de la source à la production : découpage en dépôts isolant la valeur métier, pipelines Jenkins, images Docker déployées avec Terraform sur Rancher 2"
-      - "Développement d'outillage mutualisé facilitant l'adoption de l'architecture préconisée"
-      - "Premiers composants d'enrichissement en flux : géocodage d'adresses (après étude des données ouvertes) et signaux d'affaires (changement de poste, brevets) notifiés aux commerciaux"
-      - "Accompagnement des développeurs vers le streaming par des articles techniques détaillés"
-    stack: "Java, Quarkus, MongoDB, Kafka, Docker, Kubernetes, Rancher 2, Terraform, Jenkins, Prometheus, Grafana, ELK"
-    keywords_ats:
-      - "Kafka"
-      - "Streaming"
-      - "Data pipeline"
-      - "Quarkus"
-      - "Architecture distribuée"
+      - "Pilotage de la bascule d'une livraison de données mensuelle vers un pipeline de streaming Kafka, en faisant coopérer trois équipes autonomes (R&D, data, produit) d'un SaaS B2B ; accompagnement des développeurs par des articles techniques"
+      - "Industrialisation des développements data de la source à la production : découpage en dépôts isolant la valeur métier, pipelines Jenkins, images Docker déployées avec Terraform sur Rancher"
+      - "Premiers composants d'enrichissement en flux : géocodage d'adresses et signaux d'affaires (changement de poste, brevets) notifiés aux commerciaux"
+    stack: "Java 11, Quarkus 1/2, MongoDB, Kafka, Kubernetes, Terraform, Jenkins, Prometheus/Grafana, ELK"
+    keywords_ats: ["Kafka", "Streaming", "Data pipeline", "Quarkus", "Architecture distribuée"]
 
   - title: "Technical Manager"
     company: "Eptica (Enghouse)"
     startDate: "2017-09"
-    endDate: "2020-02"
+    endDate: "2020-04"
     location: "Nantes"
     highlights:
-      - "Reprise en main du produit Vecko (analyse de la voix du client) après une longue période sans responsable technique, et rationalisation pour une cible SaaS multi-tenant (images Docker stateless)"
-      - "Adoption du paradigme reactive (Spring Boot 2, Cassandra, Kafka, clients HTTP asynchrones) pour traiter des flux avec une configuration propre à chaque client"
-      - "Observabilité : métriques métier (Micrometer), tracing distribué (Brave), dashboards et alerting Prometheus/Grafana, charts Helm"
-      - "Architecture micro-UI (React) remplaçant l'adaptation de Kibana, pour une UI homogène laissant la liberté des choix techniques"
-      - "Mise en production sur GKE avec rapidement de nombreux clients ; responsable de l'architecture, du run, de l'intégration des données clients (API, fichiers) et de la qualité"
-      - "Traduction des epics fonctionnelles en backlog technique priorisé (sprints de 2 semaines), outils de configuration pour les linguistes et le product manager, reporting bimensuel au CTO"
-    stack: "Java, Spring Boot, Cassandra, Kafka, Elasticsearch, Kibana, React, Docker, Kubernetes, GKE, Helm, Prometheus, Grafana, Micrometer"
-    keywords_ats:
-      - "Technical Manager"
-      - "Spring Boot"
-      - "Architecture reactive"
-      - "Multi-tenant"
-      - "SaaS"
-      - "Kafka"
-      - "GKE"
-      - "Observabilité"
+      - "Reprise en main du produit Vecko (analyse de la voix du client) et refonte en SaaS multi-tenant : conteneurs stateless, paradigme reactive (Spring Boot 2, Cassandra, Kafka) pour des flux configurés par client"
+      - "Mise en production sur GKE et montée en charge sur de nombreux clients ; responsable de l'architecture, du run, de l'intégration des données clients et de la qualité"
+      - "Observabilité : métriques métier (Micrometer), tracing distribué (Brave), alerting Prometheus/Grafana ; architecture micro-UI en React"
+      - "Backlog technique priorisé (sprints de 2 semaines), outillage de configuration pour les linguistes et le product manager, reporting au CTO"
+    stack: "Java, Spring Boot 2, Cassandra, Kafka, Elasticsearch, React, Kubernetes, GKE, Helm, Prometheus/Grafana"
+    keywords_ats: ["Technical Manager", "Architecture reactive", "Multi-tenant", "SaaS", "Observabilité", "Tracing distribué"]
 
   - title: "Responsable technique / Architecte solution"
     company: "Capgemini"
@@ -293,86 +141,38 @@ experience:
     endDate: "2017-08"
     location: "Nantes"
     highlights:
-      - "LivingPackets : architecture microservices sur Google Cloud (App Engine, Datastore, Dataflow, Pub/Sub), contrats OpenAPI générant les clients mobiles, accompagnement de 5 développeurs, back-office Angular"
-      - "ETCS (SNCF Réseau) : cadre de développement d'un plugin QGIS Python/PyQt posé en 2 semaines, puis réécriture iso-fonctionnelle d'une application complexe en 2 mois avec 2 développeurs"
-      - "Geocatalogue (BRGM) : migration d'Exalead vers Solr, conception et encadrement de 2 développeurs ; forfait livré avec une marge de 30 k€ au-dessus du budget (~100 j/h)"
-      - "Verdi (SIG grande envergure) : responsable technique jusqu'à 12 développeurs (socle technique, revues de code, qualité Sonar) ; remplacement de briques ESRI propriétaires par du code spécifique, rendant le projet éligible au CIR"
-      - "Verdi : ORM géographique sur QueryDSL, mode hors ligne GeoPackage avec synchronisation vers Oracle, client Swing MVP/Spring"
-    stack: "Java, Spring, QueryDSL, Oracle, PostgreSQL, PostGIS, GeoPackage, Python, PyQt, QGIS, ESRI, Solr, Google Cloud, Angular"
-    keywords_ats:
-      - "Architecte solution"
-      - "Responsable technique"
-      - "ESN"
-      - "Encadrement technique"
-      - "SIG"
-      - "Google Cloud"
-      - "Microservices"
-      - "Forfait"
-
-  - title: "Ingénieur d'études"
-    company: "Kosmos"
-    startDate: "2013-01"
-    endDate: "2014-01"
-    location: "Nantes"
-    highlights:
-      - "Intégration en délai court d'un webmail dans la messagerie de l'ENT (unité de 11 personnes), déployée pour tous les élèves et personnels d'une académie : conception, développement, recette"
-      - "Étude comparative Solr / Elasticsearch et POC d'API de recherche full-text intégrable au CMS maison, validé sur un projet client"
-    stack: "Java, Spring, JSP, MySQL, Solr, Elasticsearch, JIRA"
-    keywords_ats: []
-
-  - title: "Ingénieur expert"
-    company: "IHE Services"
-    startDate: "2010-04"
-    endDate: "2013-01"
-    location: "Rennes"
-    highlights:
-      - "Gazelle, outil de gestion des Connectathons d'interopérabilité santé (plusieurs centaines d'éditeurs) : modularisation Maven, optimisation des performances (requêtage, mémoire, cache second niveau), réécriture des parties les plus instables"
-      - "Développement d'un proxy d'interception de messages (Netty) et d'un outil de génération et validation de certificats PKI/TLS (BouncyCastle, approche TDD)"
-      - "Architecture logicielle, formation et revues de code dans une équipe de 6 personnes ; administration système et support international (USA, Japon)"
-    stack: "Java, JBoss Seam, JSF, Hibernate, Maven, Jenkins, Netty, BouncyCastle, PostgreSQL"
-    keywords_ats: []
+      - "Responsable technique d'un SIG de grande envergure jusqu'à 12 développeurs (socle, revues de code, qualité Sonar) : ORM géographique sur QueryDSL, mode hors ligne GeoPackage synchronisé avec Oracle ; remplacement de briques ESRI propriétaires, rendant le projet éligible au CIR"
+      - "Architecture microservices sur GCP (App Engine, Datastore, Dataflow) pour LivingPackets, contrats OpenAPI générant les clients mobiles, accompagnement de 5 développeurs"
+      - "Forfaits livrés sous contrainte : plugin QGIS/PyQt pour SNCF Réseau (cadre posé en 2 semaines, application réécrite en 2 mois à 3) ; migration Exalead vers Solr pour le BRGM avec une marge supérieure de 30 k€ à l'objectif (~100 j/h)"
+    stack: "Java, Spring, QueryDSL, Oracle, PostGIS, Python, QGIS, Solr, GCP, Angular 2"
+    keywords_ats: ["Architecte solution", "Responsable technique", "Encadrement technique", "SIG", "GCP", "Microservices", "Forfait"]
 
 early_career:
-  - period: "2009 – 2010"
-    company: "Mediasofts"
+  - period: "2013 – 2014"
+    company: "Kosmos"
     title: "Ingénieur d'études"
-    summary: "Réécriture du module escalier du logiciel de CAO Metalcad : modélisation et calculs 3D, rendu OpenGL, génération de plans AutoCAD"
-    stack: "Delphi, OpenGL"
-  - period: "2009"
-    company: "Sneda"
-    title: "Recherche et développement"
-    summary: "Profiler Java, driver ODA pour BIRT, intégration continue d'applications Eclipse RCP/OSGi"
-    stack: "Java, Eclipse RCP, OSGi, Maven, Tycho, Nexus"
-  - period: "2008 – 2009"
-    company: "BlueXML"
-    title: "Recherche et développement"
-    summary: "Modeleur Eclipse (Topcased/EMF) et génération de code pour Alfresco ; génération de formulaires XForms depuis un métamodèle (plugin Maven)"
-    stack: "Java, EMF, Acceleo, Alfresco, XForms, Maven"
-  - period: "2007 – 2008"
-    company: "Code Lutin"
-    title: "Ingénieur développement"
-    summary: "Applications web JEE5"
-    stack: "Java, JBoss, EJB3, JPA, JAAS, Tapestry, Axis, Lucene"
-  - period: "2006 – 2007"
-    company: "Capgemini"
-    title: "Ingénieur développement"
-    summary: "Génération MDA depuis UML (gestion de stock de munitions pour l'armée de Terre, souscription d'assurance vie pour la Caisse d'Épargne) ; SIG pour la Ville de Paris (refonte de Paris à la Carte, support ArcGIS)"
-    stack: "Java, Struts, Hibernate, Acceleo, ASP.NET, OpenLayers, ArcGIS"
-  - period: "2004 – 2006"
-    company: "Mediasofts"
-    title: "Concepteur développeur"
-    summary: "Conception du module escalier de Metalcad, répartition automatique de végétaux, optimisation de découpes"
-    stack: "Delphi, OpenGL"
+    summary: "Webmail intégré en délai court à l'ENT d'une académie entière ; POC de recherche full-text Solr / Elasticsearch"
+    stack: "Java, Spring, Elasticsearch"
+  - period: "2010 – 2013"
+    company: "IHE Services"
+    title: "Ingénieur expert"
+    summary: "Outils de test d'interopérabilité santé utilisés par plusieurs centaines d'éditeurs : optimisation des performances, proxy réseau (Netty), validation PKI/TLS en TDD, support international (USA, Japon)"
+    stack: "Java, JPA/Hibernate, Maven, Jenkins, BouncyCastle"
+  - period: "2004 – 2010"
+    company: "Capgemini, Code Lutin, BlueXML, Sneda, Mediasofts"
+    title: "Développeur, R&D"
+    summary: "Applications JEE, génération de code MDA (UML, Acceleo), SIG pour la Ville de Paris, outillage Eclipse RCP/OSGi, CAO 3D (Delphi, OpenGL)"
+    stack: ""
   - period: "2000 – 2004"
-    company: "Stages et premiers projets"
+    company: "Stages et junior-entreprise"
     title: ""
-    summary: "Logiciel de télésauvegarde neobe Backup (Neobe) ; saisie GPS nomade (Cadden) ; atelier statistique de benchmarking (Ordimega) ; migration vers MX4J/JMX open source (Corizon, Londres) ; plus de 10 projets en junior-entreprise dont plusieurs comme chef de projet"
-    stack: "Delphi, Java, C++, PHP"
+    summary: "Neobe (télésauvegarde), Cadden (SIG nomade), Corizon à Londres (migration vers MX4J open source), plus de 10 projets en junior-entreprise"
+    stack: ""
 
 education:
-  - institution: "ENSG-Géomatique (Université de Marne-la-Vallée)"
+  - institution: "ENSG-Géomatique / Université de Marne-la-Vallée"
     area: "Sciences de l'information géographique (mention Bien)"
-    studyType: "DEA / Master 2 recherche"
+    studyType: "DEA (Master 2)"
     startDate: "2003-09"
     endDate: "2004-08"
     location: "Paris"
@@ -387,38 +187,27 @@ education:
 projects:
   - name: "Pedalons"
     url: "https://pedalons.fr"
-    description: "Plateforme SaaS multi-tenant pour clubs cyclistes (sorties, séjours, routes GPX sur cartes interactives, communication) : backend Quarkus, SPA React, application mobile Flutter, extensions pour compteurs GPS Karoo et Garmin, API conçue par contrat OpenAPI. Conçue et développée en solo avec Claude Code (850+ commits en 9 mois) ; prolonge une contribution à la plateforme open source biketeam"
+    description: "Plateforme SaaS multi-tenant pour clubs cyclistes (Quarkus, React, Flutter, extensions Karoo et Garmin, API conçue par contrat OpenAPI), développée en solo avec Claude Code : 850+ commits en 9 mois"
     status: "en développement"
-    keywords: ["Java 21", "Quarkus", "PostgreSQL", "PostGIS", "React", "TypeScript", "Flutter", "Kotlin", "OpenAPI", "Multi-tenant", "Claude Code"]
+    keywords: ["Java 21", "Quarkus 3", "PostGIS", "React", "Flutter", "Kotlin", "OpenAPI", "Claude Code"]
 
   - name: "brevets.bike"
     url: "https://www.brevets.bike"
-    description: "Analyse de tracés GPS et validation électronique pour épreuves de grande randonnée cycliste et ultra-cyclisme (brevets ACP), en production depuis 2016"
+    description: "Analyse de tracés GPS et validation électronique d'épreuves d'ultra-cyclisme, en production depuis 2016"
     status: "en ligne"
-    keywords: ["Python", "numpy", "Flask", "MongoDB", "Kafka", "Docker", "GPS"]
+    keywords: ["Python", "Flask", "MongoDB", "Kafka"]
 
-  - name: "vcyclist"
-    url: "https://github.com/glandais/vcyclist"
-    description: "Moteur open source de simulation cycliste fondé sur la physique (puissance, W′bal, vitesse en virage et au freinage, correction d'altitude), porté de Java vers Kotlin Multiplatform (JVM, JS, Wasm) ; publié sur Maven Central et npm (~900 téléchargements/mois)"
-    status: "open source"
-    keywords: ["Kotlin Multiplatform", "Java", "TypeScript", "WebAssembly", "GPX", "Maven Central", "npm"]
-
-  - name: "Bibliothèques open source"
+  - name: "Open source"
     url: "https://github.com/glandais"
-    description: "nmt-metrics : suivi de la mémoire native JVM en conteneur via Micrometer/Prometheus (Maven Central) ; SDK non officiels du format FIT de Garmin pour Kotlin Multiplatform et Dart, générés par rétro-ingénierie du générateur officiel (Maven Central, npm) ; leaflet-relief et elevation : relief, pentes et altimétrie cartographiques (~1 100 téléchargements npm/mois)"
+    description: "Contributeur Quarkus : correctif de l'extension kafka-client pour la compilation native GraalVM (1.11.7). Bibliothèques publiées sur Maven Central et npm (~2 000 téléchargements npm/mois) : vcyclist, moteur de simulation cycliste en Kotlin Multiplatform ; nmt-metrics, suivi de la mémoire native JVM en conteneur ; SDK du format FIT de Garmin générés par rétro-ingénierie ; leaflet-relief et elevation (cartographie)"
     status: "open source"
-    keywords: ["Java", "Micrometer", "Prometheus", "Kotlin Multiplatform", "Dart", "TypeScript", "Leaflet", "Génération de code"]
+    keywords: ["Quarkus", "GraalVM", "Kotlin Multiplatform", "Java", "Micrometer", "TypeScript", "Maven Central", "npm"]
 
 languages:
   - language: "Français"
-    fluency: "Langue maternelle"
+    fluency: "langue maternelle"
   - language: "Anglais"
-    fluency: "Professionnel — IELTS 6,5/9, support international (USA, Japon)"
+    fluency: "professionnel (IELTS 6,5/9)"
 
 certifications: []
-# TODO: ajouter certifications AWS/GCP si existantes
 
-interests:
-  - "Cyclisme (route et VTT)"
-  - "SIG et données géospatiales"
-  - "Développement open source"

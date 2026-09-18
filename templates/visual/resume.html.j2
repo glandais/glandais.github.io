@@ -84,6 +84,21 @@
   </section>
   {% endif %}
 
+  {% if data.projects %}
+  <section>
+    <h2>Projets et open source</h2>
+    {% for proj in data.projects %}
+    <article class="entry">
+      <h3>{{ proj.name }}{% if proj.url %} <a href="{{ proj.url }}">↗</a>{% endif %}{% if proj.status %} <span class="badge">{{ proj.status }}</span>{% endif %}</h3>
+      <p>{{ proj.description }}</p>
+      {% if proj.keywords %}
+      <div class="tags">{% for kw in proj.keywords %}<span class="tag">{{ kw }}</span>{% endfor %}</div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
   {% if data.education %}
   <section>
     <h2>Formation</h2>
@@ -94,21 +109,6 @@
         <span class="date">{{ edu.startDate }} – {{ edu.endDate }}</span>
       </div>
       <p class="company">{{ edu.institution }}{% if edu.location %} · {{ edu.location }}{% endif %}</p>
-    </article>
-    {% endfor %}
-  </section>
-  {% endif %}
-
-  {% if data.projects %}
-  <section>
-    <h2>Projets personnels</h2>
-    {% for proj in data.projects %}
-    <article class="entry">
-      <h3>{{ proj.name }}{% if proj.url %} <a href="{{ proj.url }}">↗</a>{% endif %}{% if proj.status %} <span class="badge">{{ proj.status }}</span>{% endif %}</h3>
-      <p>{{ proj.description }}</p>
-      {% if proj.keywords %}
-      <div class="tags">{% for kw in proj.keywords %}<span class="tag">{{ kw }}</span>{% endfor %}</div>
-      {% endif %}
     </article>
     {% endfor %}
   </section>
