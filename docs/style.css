@@ -70,3 +70,4 @@ li { margin-bottom: 0.15rem; font-size: 0.95rem; }
 
 footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 footer a { color: var(--primary); text-decoration: none; }
+.project-link { font-size: 0.8rem; font-weight: normal; color: var(--primary); text-decoration: none; margin-left: 0.3rem; }

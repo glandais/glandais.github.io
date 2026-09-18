@@ -27,42 +27,42 @@ basics:
 
 skills:
   - category: "Architecture"
-    keywords: ["Microservices", "Event-driven", "CQRS", "Architecture hexagonale", "DDD", "API-first (OpenAPI)", "ADR", "Référentiels clients (MDM, golden record, vision 360°)"]
+    keywords: ["Microservices", "Cloud native", "Event-driven", "CQRS", "Architecture hexagonale", "DDD", "API REST, API-first (OpenAPI)", "Outbox, Saga", "Résilience (Resilience4j)", "ADR, dossier d'architecture", "TOGAF", "Référentiels clients (MDM, golden record, rapprochement, qualité de données, vision 360°)"]
   - category: "Java & backend"
-    keywords: ["Java 21/25", "Spring Boot 3/4", "Spring Security", "Quarkus 3", "JPA/Hibernate", "Kafka", "Performance JVM (profiling, GC, mémoire native)", "Python"]
+    keywords: ["Java 21/25", "Spring Boot 3/4", "Spring Security", "Quarkus 3", "JPA/Hibernate", "Kafka (Streams, Schema Registry, Avro)", "JUnit 5, Mockito, Testcontainers", "Performance JVM (profiling, GC, mémoire native)", "Python"]
   - category: "Données"
-    keywords: ["PostgreSQL/PostGIS", "SQL Server", "Oracle", "MongoDB", "Cassandra", "Elasticsearch", "Liquibase"]
+    keywords: ["PostgreSQL/PostGIS", "SQL Server", "Oracle", "MongoDB", "Cassandra", "Elasticsearch", "Liquibase", "CDC/Debezium"]
   - category: "Cloud & DevOps"
-    keywords: ["Kubernetes", "Helm", "Docker", "Google Cloud (GCP, GKE)", "Azure", "Terraform", "CI/CD (GitLab CI, GitHub Actions, Jenkins)", "ArgoCD", "Prometheus/Grafana", "Gatling", "k6"]
+    keywords: ["Kubernetes", "Helm", "Docker", "Google Cloud (GCP, GKE)", "Azure", "AWS", "Terraform", "CI/CD (GitLab CI, GitHub Actions, Jenkins)", "GitOps (ArgoCD)", "OpenTelemetry", "Prometheus/Grafana", "SRE", "Gatling", "k6"]
   - category: "Sécurité"
-    keywords: ["OAuth2 / OIDC", "JWT/JWS", "Authentification forte (SCA, DSP2)", "Cryptographie et HSM (PKCS#11)", "PCI-DSS", "OWASP"]
-  - category: "Développement assisté par IA"
-    keywords: ["Claude Code (usage quotidien)", "Développement agentique piloté par spécification", "MCP", "Orchestration multi-agents", "Extension d'agents (skills, hooks, plugins)", "Revue de code par IA en CI"]
+    keywords: ["OAuth2 / OIDC", "Keycloak", "JWT/JWS", "SCA/DSP2", "Cryptographie et HSM", "PCI DSS", "OWASP"]
+  - category: "IA générative et développement agentique"
+    keywords: ["LLM", "Intégration de LLM et RAG", "Claude Code", "GitHub Copilot", "Cursor", "Développement piloté par spécification", "MCP", "Orchestration multi-agents", "Skills, hooks et plugins d'agents", "Revue de code par IA en CI"]
   - category: "Frontend & SIG"
     keywords: ["React", "TypeScript", "Angular", "Leaflet", "OpenLayers", "QGIS"]
   - category: "Méthodes & secteurs"
-    keywords: ["Agile (Scrum, SAFe)", "TDD", "Revue de code", "Tests de performance", "Banque et paiement", "Crédit à la consommation", "Retail omnicanal", "SaaS B2B"]
+    keywords: ["Agile (Scrum, SAFe)", "TDD", "Clean code, SOLID", "Revue de code", "Encadrement et mentorat", "Tests de performance", "Banque et paiement", "Crédit à la consommation", "Retail omnicanal", "SaaS B2B"]
 
 experience:
-  - title: "Architecte / Développeur expert Java – Authentification forte et cryptographie"
+  - title: "Développeur expert Java / Architecte"
     company: "Nickel (BNP Paribas)"
     freelance: true
     startDate: "2025-02"
     highlights:
       - "Squad authentification forte, DSP2 et cryptographie d'une néobanque de plusieurs millions de clients : conception, développement et mise en production de microservices Java critiques"
-      - "Création d'un service de cryptographie centralisé sur HSM (JWS, AES-GCM, rotation de clés, AES-DUKPT) pour les paiements instantanés européens (Wero) et les terminaux de paiement, en périmètre PCI-DSS ; responsable de la première mise en production"
-      - "Performance : débit du service de cryptographie multiplié par 32 à 41 (p95 de 0,8 s à 27 ms), tirs Gatling jusqu'à 17 800 req/s, dimensionnement JVM sous Kubernetes harmonisé, CPU par requête réduit de 38 à 50 %"
-      - "Authentification forte : validation sur appareil de confiance remplaçant l'OTP SMS, parcours de consentement Open Banking DSP2 de bout en bout (API, BFF, React), migrations SQL Server sans interruption sur des dizaines de millions de lignes"
-      - "Socle et gouvernance : migration Spring Boot 4 de la bibliothèque socle, règles ArchUnit de contrat d'API, null-safety NullAway ; POC de serveur d'autorisation OAuth2.1 / OIDC (PKCE, PAR, DPoP), ADR et formation des développeurs"
-      - "Développement agentique au quotidien avec Claude Code connecté aux outils de l'équipe par MCP (JIRA, GitLab, Kubernetes, Prometheus) ; relecture des merge requests par IA intégrée à la CI"
-    stack: "Java 21/25, Spring Boot 3/4, Spring Security, Kafka, SQL Server, HSM (PKCS#11), React, Kubernetes, ArgoCD, GitLab CI, Prometheus/Grafana, Gatling, k6"
+      - "Création d'un service de cryptographie centralisé sur HSM pour les paiements instantanés et la monétique, en périmètre PCI DSS ; responsable de la première mise en production"
+      - "Performance : débit du service de cryptographie multiplié par plus de 30 et latence p95 divisée par 30, campagnes de tests de charge (Gatling, k6), dimensionnement JVM sous Kubernetes harmonisé, CPU par requête réduit de près de moitié"
+      - "Authentification forte : nouveau facteur sur appareil de confiance, parcours de consentement Open Banking DSP2 de bout en bout (API REST, BFF, React), migrations de données sans interruption sur de gros volumes"
+      - "Socle et gouvernance : migration Spring Boot 4 de la bibliothèque socle, règles ArchUnit de contrat d'API, null-safety NullAway, résilience (Resilience4j) ; POC de serveur d'autorisation OAuth2.1 / OIDC (PKCE, PAR, DPoP), ADR et formation des développeurs"
+      - "Développement au quotidien avec un outil LLM agentique intégré aux outils de l'équipe ; relecture des merge requests par IA intégrée à la CI"
+    stack: "Java 21/25, Spring Boot 3/4, Spring Security, Kafka, SQL Server, HSM, React, Kubernetes, ArgoCD, GitLab CI, Prometheus/Grafana, Gatling, k6"
     keywords_ats:
       - "Authentification forte"
       - "SCA"
       - "DSP2"
       - "Open Banking"
       - "HSM"
-      - "PCI-DSS"
+      - "PCI DSS"
       - "Cryptographie"
       - "Spring Boot"
       - "Kafka"
@@ -71,7 +71,7 @@ experience:
       - "OAuth2 / OIDC"
       - "Banque / Paiement"
 
-  - title: "Architecte solution – Référentiel Client Unique"
+  - title: "Architecte solution Référentiel Client Unique"
     company: "BNP Paribas Personal Finance (Cetelem)"
     freelance: true
     startDate: "2024-09"
@@ -159,9 +159,9 @@ early_career:
     summary: "Outils de test d'interopérabilité santé utilisés par plusieurs centaines d'éditeurs : optimisation des performances, proxy réseau (Netty), validation PKI/TLS en TDD, support international (USA, Japon)"
     stack: "Java, JPA/Hibernate, Maven, Jenkins, BouncyCastle"
   - period: "2004 – 2010"
-    company: "Capgemini, Code Lutin, BlueXML, Sneda, Mediasofts"
-    title: "Développeur, R&D"
-    summary: "Applications JEE, génération de code MDA (UML, Acceleo), SIG pour la Ville de Paris, outillage Eclipse RCP/OSGi, CAO 3D (Delphi, OpenGL)"
+    company: "Développeur et R&D"
+    title: ""
+    summary: "Capgemini, Code Lutin, BlueXML, Sneda, Mediasofts : applications JEE, génération de code MDA (UML, Acceleo), SIG pour la Ville de Paris, outillage Eclipse RCP/OSGi, CAO 3D (Delphi, OpenGL)"
     stack: ""
   - period: "2000 – 2004"
     company: "Stages et junior-entreprise"
@@ -199,7 +199,7 @@ projects:
 
   - name: "Open source"
     url: "https://github.com/glandais"
-    description: "Contributeur Quarkus : correctif de l'extension kafka-client pour la compilation native GraalVM (1.11.7). Bibliothèques publiées sur Maven Central et npm (~2 000 téléchargements npm/mois) : vcyclist, moteur de simulation cycliste en Kotlin Multiplatform ; nmt-metrics, suivi de la mémoire native JVM en conteneur ; SDK du format FIT de Garmin générés par rétro-ingénierie ; leaflet-relief et elevation (cartographie)"
+    description: "Contributeur Quarkus (PR #16766, version 1.11.7) : correctif de l'extension kafka-client pour la compilation native GraalVM. Bibliothèques publiées sur Maven Central et npm (~2 000 téléchargements npm/mois) : vcyclist, moteur de simulation cycliste en Kotlin Multiplatform ; nmt-metrics, suivi de la mémoire native JVM en conteneur ; SDK du format FIT de Garmin générés par rétro-ingénierie ; leaflet-relief et elevation (cartographie)"
     status: "open source"
     keywords: ["Quarkus", "GraalVM", "Kotlin Multiplatform", "Java", "Micrometer", "TypeScript", "Maven Central", "npm"]
 

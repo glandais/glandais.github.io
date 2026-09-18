@@ -15,13 +15,15 @@
   h1 { font-size: 14pt; text-align: center; margin: 0 0 2pt 0; }
   .label { text-align: center; font-size: 11pt; margin: 0 0 4pt 0; }
   .contact { text-align: center; font-size: 10pt; color: #444; margin-bottom: 12pt; }
+  .contact span { white-space: nowrap; }
   h2 { font-size: 12pt; border-bottom: 1px solid #999; padding-bottom: 2pt; margin: 12pt 0 6pt 0; page-break-after: avoid; }
   p { margin: 0 0 3pt 0; }
   .job-title { font-weight: bold; margin: 6pt 0 0 0; page-break-after: avoid; }
   .job-meta { font-size: 10pt; color: #555; margin: 0 0 3pt 0; page-break-after: avoid; }
   ul { margin: 2pt 0 4pt 18pt; padding: 0; }
   li { margin-bottom: 1pt; }
-  .stack { font-size: 10pt; color: #555; margin: 2pt 0 6pt 0; }
+  .stack { font-size: 10pt; color: #555; margin: 2pt 0 6pt 0; break-before: avoid; page-break-before: avoid; }
+  li:last-child { break-after: avoid; }
   .early { margin: 0 0 3pt 0; }
   .early .stack { margin: 0; }
   .skill-cat { font-weight: bold; }
@@ -34,11 +36,11 @@
   <p class="label">{{ data.basics.label }}</p>
   <p class="contact">
     {% set sep = joiner(" | ") %}
-    {% if data.basics.email %}{{ sep() }}<a href="mailto:{{ data.basics.email }}">{{ data.basics.email }}</a>{% endif %}
-    {% if data.basics.phone %}{{ sep() }}{{ data.basics.phone }}{% endif %}
-    {% if data.basics.location and data.basics.location.city %}{{ sep() }}{% if data.basics.location.postalCode %}{{ data.basics.location.postalCode }} {% endif %}{{ data.basics.location.city }}{% endif %}
-    {% if data.basics.linkedin %}{{ sep() }}<a href="https://{{ data.basics.linkedin }}">{{ data.basics.linkedin }}</a>{% endif %}
-    {% if data.basics.github %}{{ sep() }}<a href="https://{{ data.basics.github }}">{{ data.basics.github }}</a>{% endif %}
+    {% if data.basics.email %}{{ sep() }}<span><a href="mailto:{{ data.basics.email }}">{{ data.basics.email }}</a></span>{% endif %}
+    {% if data.basics.phone %}{{ sep() }}<span>{{ data.basics.phone }}</span>{% endif %}
+    {% if data.basics.location and data.basics.location.city %}{{ sep() }}<span>{% if data.basics.location.postalCode %}{{ data.basics.location.postalCode }} {% endif %}{{ data.basics.location.city }}</span>{% endif %}
+    {% if data.basics.linkedin %}{{ sep() }}<span><a href="https://{{ data.basics.linkedin }}">{{ data.basics.linkedin }}</a></span>{% endif %}
+    {% if data.basics.github %}{{ sep() }}<span><a href="https://{{ data.basics.github }}">{{ data.basics.github }}</a></span>{% endif %}
   </p>
 
   {% if data.basics.summary %}
@@ -85,7 +87,7 @@
   {% if data.education %}
   <h2>Formation</h2>
   {% for edu in data.education %}
-  <p><strong>{{ edu.studyType }} {{ edu.area }}</strong> — {{ edu.institution }} ({{ edu.startDate[:4] }} – {{ edu.endDate[:4] }})</p>
+  <p><strong>{{ edu.studyType }} {{ edu.area }}</strong> — {{ edu.institution }} ({{ edu.startDate[:4] }}–{{ edu.endDate[:4] }})</p>
   {% endfor %}
   {% endif %}
 

@@ -146,12 +146,38 @@ def _set_core_properties(doc, data):
     props.title = f"{basics['name']} – {basics['label']}"
     props.subject = "Curriculum vitae"
     props.language = LANG
-    keywords = ", ".join(kw for group in data.get("skills", []) for kw in group.get("keywords", []))
-    props.keywords = keywords[:255].rsplit(",", 1)[0] if len(keywords) > 255 else keywords
+    props.comments = f"CV de {basics['name']} – {basics['label']}"
+    # Short labels only ("Kafka (Streams…)" -> "Kafka"), cut on a whole keyword to fit 255 chars
+    keywords: list[str] = []
+    for group in data.get("skills", []):
+        for kw in group.get("keywords", []):
+            short = kw.split(" (")[0]
+            if len(", ".join(keywords + [short])) > 255:
+                break
+            keywords.append(short)
+    props.keywords = ", ".join(keywords)
     now = datetime.now().replace(microsecond=0)
     props.created = now
     props.modified = now
     props.revision = 1
+
+
+APP_XML = (
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties">'
+    "<Application>cv-as-code</Application></Properties>"
+)
+
+
+def _clean_package(doc):
+    """Drop leftovers of python-docx's default template (thumbnail, stale app.xml)."""
+    pkg = doc.part.package
+    for r_id, rel in list(pkg.rels.items()):
+        if rel.reltype == RELATIONSHIP_TYPE.THUMBNAIL:
+            del pkg.rels[r_id]
+    for part in pkg.iter_parts():
+        if str(part.partname) == "/docProps/app.xml":
+            part._blob = APP_XML.encode("utf-8")
 
 
 def generate_docx(data: dict) -> Path:
@@ -304,7 +330,7 @@ def generate_docx(data: dict) -> Path:
             p = doc.add_paragraph()
             run = p.add_run(f"{edu['studyType']} {edu['area']}")
             _set_font(run, bold=True)
-            years = f"{str(edu.get('startDate', ''))[:4]} – {str(edu.get('endDate', ''))[:4]}"
+            years = f"{str(edu.get('startDate', ''))[:4]}–{str(edu.get('endDate', ''))[:4]}"
             run = p.add_run(f" — {edu['institution']} ({years})")
             _set_font(run)
 
@@ -317,6 +343,8 @@ def generate_docx(data: dict) -> Path:
     if data.get("interests"):
         _add_heading_text(doc, "Centres d'intérêt")
         _add_body(doc, ", ".join(data["interests"]))
+
+    _clean_package(doc)
 
     # Save
     out_dir = DIST_DIR / "docx"
