@@ -48,6 +48,7 @@ experience:
     company: "Nickel (BNP Paribas)"
     freelance: true
     startDate: "2025-02"
+    location: "Nantes"
     highlights:
       - "Squad authentification forte, DSP2 et cryptographie d'une néobanque de plusieurs millions de clients : conception, développement et mise en production de microservices Java critiques"
       - "Création d'un service de cryptographie centralisé sur HSM pour les paiements instantanés et la monétique, en périmètre PCI DSS ; responsable de la première mise en production"
@@ -199,7 +200,7 @@ projects:
 
   - name: "Open source"
     url: "https://github.com/glandais"
-    description: "Contributeur Quarkus (PR #16766, version 1.11.7) : correctif de l'extension kafka-client pour la compilation native GraalVM. Bibliothèques publiées sur Maven Central et npm (~2 000 téléchargements npm/mois) : vcyclist, moteur de simulation cycliste en Kotlin Multiplatform ; nmt-metrics, suivi de la mémoire native JVM en conteneur ; SDK du format FIT de Garmin générés par rétro-ingénierie ; leaflet-relief et elevation (cartographie)"
+    description: "Contributeur Quarkus : correctif de l'extension kafka-client pour la compilation native GraalVM, intégré à Quarkus 2.0 (PR #16766). Bibliothèques publiées sur Maven Central et npm (~2 000 téléchargements npm/mois) : vcyclist, moteur de simulation cycliste en Kotlin Multiplatform ; nmt-metrics, suivi de la mémoire native JVM en conteneur ; SDK du format FIT de Garmin générés par rétro-ingénierie ; leaflet-relief et elevation (cartographie)"
     status: "open source"
     keywords: ["Quarkus", "GraalVM", "Kotlin Multiplatform", "Java", "Micrometer", "TypeScript", "Maven Central", "npm"]
 
